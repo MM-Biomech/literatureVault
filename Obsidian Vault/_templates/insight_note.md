@@ -1,3 +1,19 @@
+---
+type: insight
+population:
+activity:
+metric:
+property:
+method:
+source:
+citekey:
+---
+
+
+
+
+
+
 # Insight: metric + effect + condition
 
 Statement:

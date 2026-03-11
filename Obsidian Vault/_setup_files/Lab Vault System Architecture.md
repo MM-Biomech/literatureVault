@@ -1,6 +1,8 @@
 ## Purpose
 
-This document defines the structure, rules, and intended use of the lab's Obsidian research vault.
+This document defines the structure, rules, and intended use of the lab’s Obsidian research vault.
+
+The vault is designed to function as a **long-term research knowledge system**, not simply a literature note repository.
 
 Primary goals:
 
@@ -8,20 +10,21 @@ Primary goals:
     
 - support both **method development** and **clinical insight discovery**
     
-- enable **fast manuscript writing** from reusable knowledge
+- enable **fast manuscript writing** from reusable notes
     
 - capture both **conceptual insights** and **quantitative evidence**
     
 - scale across **hundreds of papers and many gait metrics**
     
 
-The vault is designed to function as a **long-term research knowledge system**, not simply a literature note repository.
+The system separates **sources, insights, and numerical evidence** so knowledge remains reusable across projects.
 
 ---
 
 # Core Design Principles
 
-1. **One vault, not multiple vaults**  
+1. **One vault, not multiple vaults**
+    
     Method papers, clinical papers, and project ideas belong in the same system.
     
 2. **Organize knowledge, not manuscripts**
@@ -32,17 +35,63 @@ The vault is designed to function as a **long-term research knowledge system**, 
     
 5. **Reference data notes capture numerical evidence**
     
-6. **Ontology nodes provide controlled vocabulary**
+6. **Ontology nodes define shared vocabulary**
     
-7. **Use links heavily to connect concepts**
+7. **Use links aggressively**
     
 8. **Extract minimally from papers**
     
 
-Most papers should produce:
+Typical output from one paper:
 
 1–5 insight notes  
 0–2 reference data notes
+
+---
+
+# Relationship Between Zotero and Obsidian
+
+Zotero and Obsidian serve different roles.
+
+## Zotero
+
+Zotero is the **bibliographic database** and should store:
+
+- authors
+    
+- journal
+    
+- publication year
+    
+- DOI
+    
+- abstract
+    
+- keywords
+    
+- PDFs
+    
+- citation metadata
+    
+
+These should **not be duplicated inside Obsidian properties**.
+
+---
+
+## Obsidian
+
+Obsidian stores:
+
+- conceptual knowledge
+    
+- insights extracted from literature
+    
+- relationships between concepts
+    
+- numerical reference values
+    
+
+Obsidian functions as a **knowledge graph built on top of the literature database**.
 
 ---
 
@@ -75,7 +124,7 @@ Temporary location for incomplete or unprocessed notes.
 
 ## 01_Papers
 
-One note per paper.
+One note per literature source.
 
 Paper notes serve as **navigation hubs linking insights and extracted data**.
 
@@ -85,15 +134,28 @@ Paper notes serve as **navigation hubs linking insights and extracted data**.
 
 Atomic scientific claims extracted from literature.
 
-Insight notes are **the primary reusable knowledge unit**.
+Insight notes are the **primary reusable knowledge unit**.
 
 ---
 
 ## 03_Ontology
 
-Controlled vocabulary defining concepts used throughout the vault.
+Controlled vocabulary used across the vault.
 
-These provide the conceptual structure for linking knowledge.
+These notes define concepts such as:
+
+- populations
+    
+- activities
+    
+- methods
+    
+- metrics
+    
+- metric domains
+    
+- properties
+    
 
 ---
 
@@ -101,31 +163,31 @@ These provide the conceptual structure for linking knowledge.
 
 Structured numerical results extracted from papers.
 
-These support insight notes with **quantitative evidence**.
+These support insights with **quantitative evidence**.
 
 ---
 
 ## 05_Projects
 
-Notes connecting literature knowledge to active research projects.
+Notes linking literature knowledge to active research projects.
 
 ---
 
 ## 06_Manuscripts
 
-Notes used to assemble manuscripts or sections of papers.
+Working notes used when assembling papers or reports.
 
 ---
 
 ## _templates
 
-Templates for creating standardized notes.
+Templates used when creating standardized notes.
 
 ---
 
 # Knowledge Model
 
-The vault organizes research knowledge around the following conceptual structure:
+Knowledge in the vault is structured around the conceptual relationship:
 
 Population × Activity × Metric × Property × Method
 
@@ -143,13 +205,15 @@ This framework allows flexible connections between studies and findings.
 
 # Ontology Structure
 
+Ontology nodes define the conceptual vocabulary used across the vault.
+
 ## Populations
 
 Examples:
 
 - Multiple Sclerosis
     
-- Parkinson's Disease
+- Parkinson’s Disease
     
 - Healthy Adults
     
@@ -194,7 +258,7 @@ Examples:
 
 # Metric Domains
 
-Metric domains organize large sets of gait variables into clinically meaningful categories.
+Metric domains organize gait metrics into clinically meaningful categories.
 
 The vault adopts the widely used gait framework consisting of the following domains:
 
@@ -219,29 +283,21 @@ Folder structure:
         Asymmetry  
         Postural Control
 
-Metric nodes should link to their domain.
-
-Example:
-
-Stride Time  
-Domain: [[Rhythm]]
-
 Example relationships:
 
-Stride Time → [[Rhythm]]  
-Stride Length → [[Pace]]  
-Stride Velocity → [[Pace]]  
-Stride Time Variability → [[Variability]]  
-Stride Time Asymmetry → [[Asymmetry]]  
-Double Support Time → [[Postural Control]]
+Stride Time → Rhythm  
+Stride Length → Pace  
+Stride Velocity → Pace  
+Stride Time Variability → Variability  
+Stride Time Asymmetry → Asymmetry  
+Double Support Time → Postural Control
 
-Domains allow retrieval of knowledge at multiple conceptual levels.
+Domains provide a conceptual grouping of metrics and allow queries such as:
 
-For example:
-
-Metric level → Stride Time  
-Domain level → Variability  
-Conceptual level → gait asymmetry in multiple sclerosis
+- all variability findings in MS
+    
+- all pace-related metrics studied in Parkinson’s disease
+    
 
 ---
 
@@ -255,14 +311,14 @@ Examples:
     
 - Stride Velocity
     
-- Double Support Time
-    
 - Cadence
+    
+- Double Support Time
     
 
 Metrics should link to their domain.
 
-Example metric node:
+Example metric note:
 
 # Stride Time  
   
@@ -272,15 +328,15 @@ Domain: [[Rhythm]]
 
 # Properties
 
-Properties describe the type of relationship being studied.
+Properties describe the **type of relationship being studied**.
 
 Examples:
 
 - Reliability
     
-- Variability
-    
 - Validation
+    
+- Variability
     
 - Sensitivity
     
@@ -291,11 +347,79 @@ Examples:
 
 ---
 
+# Use of Properties (Frontmatter)
+
+Properties should be used **sparingly and intentionally**.
+
+The purpose of properties is to enable **knowledge queries**, not to recreate Zotero metadata.
+
+---
+
+# Paper Note Properties
+
+Paper notes require only minimal metadata.
+
+Example:
+
+---  
+type: paper  
+citekey: smithValidationInsoles2024  
+year: 2024  
+---
+
+Optional:
+
+status: unread / reading / processed
+
+All conceptual information should appear **inside the note body as links**.
+
+Example:
+
+Population:  
+[[Multiple Sclerosis]]  
+  
+Activity:  
+[[Straight-line Walking]]  
+  
+Method:  
+[[Instrumented Insoles]]
+
+This prevents duplication with Zotero.
+
+---
+
+# Insight Note Properties
+
+Insight notes represent relationships between concepts and therefore benefit from structured properties.
+
+Recommended structure:
+
+---  
+type: insight  
+population:  
+activity:  
+metric:  
+domain:  
+property:  
+method:  
+source:  
+citekey:  
+---
+
+These properties allow insights to be queried using:
+
+- Obsidian Bases
+    
+- Dataview
+    
+- graph exploration
+    
+
+---
+
 # Paper Notes (01_Papers)
 
 Paper notes act as **navigation hubs**, not full summaries.
-
-Most information remains in **Zotero or the PDF**.
 
 Example structure:
 
@@ -363,7 +487,7 @@ Paper notes should generally remain **short (100–200 words)**.
 
 # Insight Notes (02_Insights)
 
-Insight notes store **one reusable scientific claim**.
+Insight notes capture **one reusable scientific claim**.
 
 Example structure:
 
@@ -372,7 +496,9 @@ type: insight
 population:  
 activity:  
 metric:  
+domain:  
 property:  
+method:  
 source:  
 citekey:  
 ---  
@@ -389,7 +515,7 @@ Example title:
 
 Stride velocity decreases with EDSS in multiple sclerosis
 
-Insight notes are designed to be **directly reusable when writing manuscripts**.
+Insight notes are designed to be **directly reusable in manuscripts**.
 
 ---
 
@@ -397,13 +523,13 @@ Insight notes are designed to be **directly reusable when writing manuscripts**.
 
 Reference data notes store **numerical results extracted from papers**.
 
-Typically:
+These usually correspond to:
 
 - one table
     
 - one dataset
     
-- one group of numerical findings
+- one group of related numerical results
     
 
 Example note:
@@ -424,19 +550,19 @@ Citation: @smithValidationStudy2024
 
 Metric names should be **linked to ontology nodes**.
 
-This allows retrieval through backlinks.
+This enables retrieval via backlinks.
 
 ---
 
 # Query Strategy
 
-The system relies on **links rather than rigid databases**.
+The system relies on **link-based querying** rather than rigid databases.
 
 Example workflow:
 
 Search: Stride Time  
 ↓  
-Open the Stride Time ontology page  
+Open Stride Time ontology page  
 ↓  
 View backlinks  
 ↓  
@@ -456,7 +582,7 @@ This approach scales naturally as the vault grows.
     
 4. Extract **reference data notes if numerical values are important**.
     
-5. Link insights and reference data to ontology nodes.
+5. Link insights and data to ontology nodes.
     
 
 Typical processing time:
@@ -467,7 +593,7 @@ Typical processing time:
 
 # Collaboration Rules
 
-1. The vault is **shared knowledge infrastructure**.
+1. The vault is **shared research infrastructure**.
     
 2. Prefer linking existing ontology nodes rather than creating new ones.
     
@@ -475,7 +601,7 @@ Typical processing time:
     
 4. Reference data notes should capture only **numbers likely to be cited later**.
     
-5. Avoid long summaries of papers.
+5. Avoid long narrative summaries of papers.
     
 
 ---
