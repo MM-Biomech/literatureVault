@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_Papers/soulard2021SpatiotemporalGait.md",
+                "file": "04_Reference_Data/Untitled.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "soulard2021SpatiotemporalGait"
+              "title": "Untitled"
             }
           }
         ]
@@ -112,12 +112,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "01_Papers/soulard2021SpatiotemporalGait.md",
+                "file": "04_Reference_Data/Untitled.md",
                 "linksCollapsed": true,
                 "unlinkedCollapsed": false
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from soulard2021SpatiotemporalGait"
+              "title": "Outgoing links from Untitled"
             }
           },
           {
@@ -179,14 +179,21 @@
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
       "bases:Create new base": false,
-      "templater-obsidian:Templater": false
+      "templater-obsidian:Templater": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "48179521d966c1a6",
+  "active": "d51701079c0a4a93",
   "lastOpenFiles": [
+    "04_Reference_Data/soulard2021SpatiotemporalGait — Intra-session Reliability.md",
+    "04_Reference_Data/Untitled.md",
+    "01_Papers/soulard2021SpatiotemporalGait.md",
+    "_templates/reference_data.md",
+    "03_Ontology/metrics/Symmetry Ratio.md",
+    "03_Ontology/metrics/Symmetry Index.md",
+    "03_Ontology/activities/Dual-task Walking.md",
     "SEM.md",
     "03_Ontology/metrics/Untitled.md",
-    "01_Papers/soulard2021SpatiotemporalGait.md",
     "03_Ontology/activities/Untitled.md",
     "01_Papers/cheeInfluenceMultipleSclerosis2021.md",
     "01_Papers/sharifbidabadiApplicationInertialMeasurements2017.md",
@@ -204,12 +211,6 @@
     "03_Ontology/properties/Clinical Association.md",
     "03_Ontology/properties/Detection.md",
     "03_Ontology/properties/Sensitivity.md",
-    "03_Ontology/properties/Variability.md",
-    "03_Ontology/properties/Validation.md",
-    "03_Ontology/properties/Reliability.md",
-    "03_Ontology/metric_domains/Postural Control.md",
-    "03_Ontology/metric_domains/Asymmetry.md",
-    "03_Ontology/metric_domains/Variability.md",
     "03_Ontology/metric_domains",
     "Untitled.canvas",
     "01_Papers/figures/sharifbidabadiApplicationInertialMeasurements2017_fig12.png",

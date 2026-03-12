@@ -17,6 +17,34 @@
     {
       "folder": "02_Insights",
       "template": "_templates/insight_note.md"
+    },
+    {
+      "folder": "04_Reference_Data",
+      "template": "_templates/reference_data.md"
+    },
+    {
+      "folder": "03_Ontology/activities",
+      "template": "_templates/ontology_activity.md"
+    },
+    {
+      "folder": "03_Ontology/methods",
+      "template": "_templates/ontology_method.md"
+    },
+    {
+      "folder": "03_Ontology/metric_domains",
+      "template": "_templates/ontology_metric_domain.md"
+    },
+    {
+      "folder": "03_Ontology/metrics",
+      "template": "_templates/ontology_metric.md"
+    },
+    {
+      "folder": "03_Ontology/populations",
+      "template": "_templates/ontology_population.md"
+    },
+    {
+      "folder": "03_Ontology/properties",
+      "template": "_templates/ontology_property.md"
     }
   ],
   "enable_file_templates": false,

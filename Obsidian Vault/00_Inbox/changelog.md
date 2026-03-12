@@ -41,3 +41,27 @@
 - Obsidian has built-in KaTeX math rendering; no plugin required for equations
 
 ---
+
+## 2026-03-11 — Paper Note Refinement (Soulard 2021 dry run)
+
+### Added
+
+- `03_Ontology/activities/Dual-task Walking.md` — new activity node
+- `03_Ontology/metrics/Symmetry Index.md` — new metric node with SI equation, links to Asymmetry domain
+- `03_Ontology/metrics/Symmetry Ratio.md` — new metric node with SR equation, links to Asymmetry domain
+- `04_Reference_Data/soulard2021SpatiotemporalGait — Intra-session Reliability.md` — first reference data note; ICC, SEM, MDC for core spatiotemporal and symmetry metrics
+
+### Updated
+
+- `_templates/paper_note.md` — added `Statistics:` field to Study Context
+- `01_Papers/soulard2021SpatiotemporalGait.md` — corrected Study Context (removed narrative prose), fixed metric links (Asymmetry → Symmetry Index + Symmetry Ratio), corrected activity links, removed citation from Notes, linked reference data note
+- `_setup_files/Lab Vault System Architecture.md` — documented Study Context authoring rules; added Statistics field to paper note example
+
+### Decisions Recorded
+
+- Study Context uses wikilinks and brief parentheticals only — no full sentences. Sentence-level observations belong in insight notes.
+- Unresolved wikilinks are acceptable temporarily; stub notes should be created promptly for any concept that will appear across multiple papers
+- Asymmetry is a metric domain; Symmetry Index and Symmetry Ratio are the specific metrics that belong to it
+- Statistical methods (ICC, SEM, MDC, etc.) are linked in the Statistics field and housed as ontology nodes in `03_Ontology/methods/`
+
+---

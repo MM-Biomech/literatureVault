@@ -477,21 +477,30 @@ status: unread
 ## Study Context  
   
 Population:  
-- [[Healthy Adults]]  
-- [[Multiple Sclerosis]]  
-- [[Parkinson's Disease]]  
+- [[Healthy Adults]] (N=20)
+- [[Multiple Sclerosis]] (N=18)  
+- [[Parkinson's Disease]] (N=15)  
   
 Activity:  
-- [[Straight-line Walking]]  
+- [[Straight-line Walking]] (10MWT, comfortable speed)  
   
 Methods:  
 - [[Instrumented Insoles]]  
 - [[Motion Capture]]  
+
+Statistics:  
+- [[ICC]]
+- [[Bland-Altman]]
   
 Sample Size:  
 Healthy: 20  
 PwMS: 18  
-PwPD: 15  
+PwPD: 15
+
+**Study Context rules:**
+- Use wikilinks and brief parenthetical clarifiers only — no full sentences
+- Brief notes in parentheses are fine to disambiguate (e.g. device model, protocol variant)
+- If a thought requires a verb, it belongs in an insight note, not here  
   
 ---  
   
@@ -523,6 +532,8 @@ PwPD: 15
 ## Notes  
   
 Observations that may later become insights.
+
+The `Statistics:` field lists statistical methods used in the paper as wikilinks (e.g. `[[ICC]]`, `[[SEM]]`, `[[MDC]]`). These nodes live in `03_Ontology/methods/`.
 
 Paper notes should generally remain **short (100–200 words)**.
 
