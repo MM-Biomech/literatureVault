@@ -2,5 +2,6 @@
   "obsidian-citation-plugin",
   "obsidian-zotero-desktop-connector",
   "templater-obsidian",
-  "table-editor-obsidian"
+  "table-editor-obsidian",
+  "dataview"
 ]

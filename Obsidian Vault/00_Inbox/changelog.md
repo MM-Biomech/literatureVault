@@ -65,3 +65,37 @@
 - Statistical methods (ICC, SEM, MDC, etc.) are linked in the Statistics field and housed as ontology nodes in `03_Ontology/methods/`
 
 ---
+
+## 2026-03-17 — Zotero Integration Workflow + Processing Queue
+
+### Added
+
+- `_templates/zotero_paper_notes.md` — canonical paper note template using Nunjucks syntax for Zotero Integration plugin; replaces `paper_note.md` as the primary template for creating paper notes
+- `01_Papers/kim2026InsoleDerivedPlantar.md` — first paper note created via Zotero Integration; includes color-routed highlights and persist blocks
+- `01_Papers/figures/kim2026InsoleDerivedPlantar/` — embedded figures extracted during import
+- `04_Reference_Data/kim2026InsoleDerivedPlantar - Smart Insole Validation.md` — reference data note with reliability (ICC) and validation (Bland-Altman) tables for spatiotemporal metrics
+- `00_Inbox/Processing Queue.md` — Dataview dashboard listing all papers with `status: reading` (pending insight extraction) and all papers by status
+
+### Updated
+
+- `_setup_files/Lab Vault System Architecture.md`:
+  - Added Plugin Roles section: Citations handles citekeys/.bib; Zotero Integration creates paper notes
+  - Added Zotero Integration: How It Works section explaining import, re-import, and persist block behavior
+  - Added Zotero Highlight Color Scheme table (Blue/Purple/Magenta/Red/Yellow) with section routing
+  - Replaced old minimal workflow with three-phase model: In Zotero → Import + fast fill → Deferred extraction
+  - Documented Processing Queue pattern and two triggers for creating insight files (on-demand vs. batch)
+  - Updated Paper Notes example to reflect actual Zotero Integration template output with persist markers and auto-filled vs. manually filled fields annotated
+  - Updated templates table to list `zotero_paper_notes.md` as canonical and `citations_paper_note.md` as legacy
+  - Clarified `status` semantics: `reading` = imported, insight files not yet created; `processed` = all insight files created
+- `04_Reference_Data/kim2026InsoleDerivedPlantar - Smart Insole Validation.md` — fixed incomplete `Citation: @` field
+
+### Decisions Recorded
+
+- Citations plugin and Zotero Integration coexist with distinct roles; paper notes are now created via Zotero Integration, not Citations
+- Highlight color scheme: Blue = purpose/hypothesis, Purple = demographics, Magenta = methods, Red = results, Yellow = insights
+- Persist blocks (`%% begin ... %%` / `%% end ... %%`) protect manually edited sections from re-import overwrite; once edited, content is permanently preserved by subsequent imports
+- Insight files in `02_Insights/` should be named at reading time as wikilinks in the paper note but created later — either on-demand when cited in a manuscript, or in a batch session using the Processing Queue
+- Unresolved insight wikilinks are surfaced by Obsidian's Outgoing Links panel and graph view; no separate tracking needed
+- Dataview plugin required for Processing Queue queries; must be installed from Community Plugins
+
+---

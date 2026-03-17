@@ -95,6 +95,40 @@ Obsidian functions as a **knowledge graph built on top of the literature databas
 
 ---
 
+## Plugin Roles
+
+Two plugins handle the connection between Zotero and Obsidian. They serve distinct roles and coexist without conflict.
+
+| Plugin | Role |
+|---|---|
+| **Citations** | Citekey resolution, `.bib` file management, pandoc cite syntax |
+| **Zotero Integration** | Importing highlights, annotations, and metadata into paper notes |
+
+Paper notes are created via Zotero Integration, not Citations.
+
+---
+
+## Zotero Integration: How It Works
+
+The Zotero Integration plugin uses a **Nunjucks template** (`_templates/zotero_paper_notes.md`) to render a paper note from a Zotero item.
+
+On import, it:
+
+- pulls bibliographic metadata (`citekey`, `year`, etc.)
+- pulls all PDF annotations and routes them by highlight color into the correct section of the note
+
+On **re-import** (after adding new highlights in Zotero):
+
+- updates the imported content
+- preserves any sections you have manually edited in Obsidian, using `%% begin ... %%` / `%% end ... %%` persist markers
+
+**Persist marker behavior:**
+- Sections wrapped in persist markers are protected from re-import overwrite
+- Once you have edited content inside a persist block, that content is permanently preserved by subsequent imports
+- If a persist block is messy, edit it directly in Obsidian — re-import will not fix it
+
+---
+
 # Top-Level Folder Structure
 
 00_Inbox/  
@@ -131,7 +165,9 @@ One note per literature source.
 
 Paper notes serve as **navigation hubs linking insights and extracted data**.
 
-Paper notes are created using the **Citations plugin**, which auto-populates `citekey` and `year` from Zotero. See `_templates/paper_note.md` for the canonical structure.
+Paper notes are created using the **Zotero Integration plugin**, which imports highlights, annotations, and metadata directly from Zotero. See `_templates/zotero_paper_notes.md` for the canonical structure.
+
+The **Citations plugin** still coexists and is used solely for citekey resolution and `.bib` file management. It does not create paper notes.
 
 ---
 
@@ -200,7 +236,8 @@ Templates used when creating standardized notes.
 
 | Template | Purpose |
 |---|---|
-| `paper_note.md` | Canonical paper note structure; mirrors Citations plugin template |
+| `zotero_paper_notes.md` | Canonical paper note template; used by Zotero Integration plugin |
+| `citations_paper_note.md` | Legacy Citations plugin template (kept for reference) |
 | `insight_note.md` | Insight note with full frontmatter |
 | `reference_data.md` | Reference data table with example columns |
 | `ontology_population.md` | Population ontology node |
@@ -402,7 +439,7 @@ The purpose of properties is to enable **knowledge queries**, not to recreate Zo
 
 # Paper Note Properties
 
-Paper notes require only minimal metadata. The **Citations plugin** auto-fills `citekey` and `year` from Zotero when creating a note.
+Paper notes require only minimal metadata. The **Zotero Integration plugin** auto-fills `citekey` and `year` from Zotero when creating a note. The **Citations plugin** handles citekey resolution in the `.bib` file but does not create paper notes.
 
 Example frontmatter:
 
@@ -465,80 +502,103 @@ These properties allow insights to be queried using:
 
 Paper notes act as **navigation hubs**, not full summaries.
 
-Example structure:
+Below is the structure produced by the Zotero Integration template. Imported sections are filled automatically from highlight colors; manually filled fields are noted inline.
 
----  
-type: paper  
-citekey: smithValidationInsoles2024  
-year: 2024  
-status: unread  
----  
-  
-## Study Context  
-  
-Population:  
+---
+type: paper
+citekey: smithValidationInsoles2024
+year: 2024
+status: unread
+---
+
+## Study Context
+%% begin study-context %%
+Population:                          (fill manually)
 - [[Healthy Adults]] (N=20)
-- [[Multiple Sclerosis]] (N=18)  
-- [[Parkinson's Disease]] (N=15)  
-  
-Activity:  
-- [[Straight-line Walking]] (10MWT, comfortable speed)  
-  
-Methods:  
-- [[Instrumented Insoles]]  
-- [[Motion Capture]]  
+- [[Multiple Sclerosis]] (N=18)
 
-Statistics:  
+Sample Size:                         (fill manually)
+- Healthy: 20, PwMS: 18
+
+Activity:                            (fill manually)
+- [[Straight-line Walking]] (10MWT, comfortable speed)
+
+Methods:                             (fill manually)
+- [[Instrumented Insoles]]
+- [[Motion Capture]]
+
+Statistics:                          (fill manually)
 - [[ICC]]
 - [[Bland-Altman]]
-  
-Sample Size:  
-Healthy: 20  
-PwMS: 18  
-PwPD: 15
 
-**Study Context rules:**
-- Use wikilinks and brief parenthetical clarifiers only — no full sentences
-- Brief notes in parentheses are fine to disambiguate (e.g. device model, protocol variant)
-- If a thought requires a verb, it belongs in an insight note, not here  
-  
----  
-  
-## Metrics Studied  
-  
-- [[Stride Time]]  
-- [[Stance Time]]  
-- [[Swing Time]]  
-- [[Stride Length]]  
-- [[Cadence]]  
-- [[Stride Velocity]]  
-  
----  
-  
-## Key Insights Extracted  
-  
-- [[Instrumented insoles show small bias relative to motion capture]]  
-- [[Stride velocity differs between MS and healthy adults]]  
-  
----  
-  
-## Reference Data Extracted  
-  
-- [[smithValidationStudy2024 — Agreement Metrics]]  
-- [[smithValidationStudy2024 — Group Differences]]  
-  
----  
-  
-## Notes  
-  
-Observations that may later become insights.
+Purpose / Hypothesis:                (auto-filled from Blue highlights)
+- (p. 1) To validate insole-derived gait metrics against motion capture in healthy adults.
 
-The `Statistics:` field lists statistical methods used in the paper as wikilinks (e.g. `[[ICC]]`, `[[SEM]]`, `[[MDC]]`). These nodes live in `03_Ontology/methods/`.
+Participant Demographics:            (auto-filled from Purple highlights)
+- (p. 2) 20 healthy adults (10M/10F), age 28 +/- 4 years.
 
-Paper notes should generally remain **short (100–200 words)**.
+Methods Details:                     (auto-filled from Magenta highlights)
+- (p. 2) Insoles sampled at 100 Hz; motion capture at 200 Hz.
+%% end study-context %%
 
 ---
 
+## Metrics Studied
+%% begin metrics-studied %%
+- [[Stride Time]]                    (fill manually)
+- [[Stride Length]]
+- [[Stride Velocity]]
+%% end metrics-studied %%
+
+---
+
+## Results
+%% begin results %%
+- (p. 4) ICC for stride velocity was 0.95 (95% CI: 0.91-0.98).   (auto-filled from Red highlights)
+%% end results %%
+
+---
+
+## Key Insights Extracted
+%% begin key-insights %%
+- [[Instrumented insoles show small bias relative to motion capture]]   (wikilinks written manually)
+- [[Stride velocity differs between MS and healthy adults]]
+
+- (p. 5) Bias was <2% for all spatiotemporal metrics.   (auto-filled from Yellow highlights)
+%% end key-insights %%
+
+---
+
+## Reference Data Extracted
+%% begin reference-data %%
+- [[smithValidationStudy2024 - Agreement Metrics]]   (fill manually after creating the reference data note)
+%% end reference-data %%
+
+---
+
+## Notes
+%% begin notes %%
+
+%% end notes %%
+
+%% Import Date: 2026-03-17T15:32:03.312-04:00 %%
+
+---
+
+**Study Context rules:**
+- Use wikilinks and brief parenthetical clarifiers only - no full sentences
+- Brief notes in parentheses are fine to disambiguate (e.g. device model, protocol variant)
+- If a thought requires a verb, it belongs in an insight note, not here
+
+**Key Insights Extracted has two zones:**
+- Wikilinks to completed insight files at the top - written manually (e.g. [[Insight title here]])
+- Raw Yellow highlight excerpts below - auto-filled by Zotero Integration, serve as draft material
+
+The yellow excerpts are raw material, not finished insights. Once you create an insight file, the raw excerpt can be removed or moved to Notes.
+
+%% begin ... %% / %% end ... %% markers are persist blocks. They protect manually edited content from being overwritten on re-import. Do not remove them.
+
+%% Import Date: ... %% at the bottom records when the last import occurred. Expected and should not be removed.
 # Insight Notes (02_Insights)
 
 Insight notes capture **one reusable scientific claim**.
@@ -630,20 +690,96 @@ This approach scales naturally as the vault grows.
 
 # Minimal Workflow for Processing a Paper
 
-1. Import paper into Zotero.
+## Phase 1 — In Zotero (while reading)
+
+1. Read the PDF in Zotero.
     
-2. Use the **Citations plugin** (`Ctrl+Shift+O`) to create the paper note in `01_Papers`.
+2. Highlight text using the color scheme below. Add Zotero comments on Yellow highlights to pre-draft insight framing in plain language — this carries directly into the note.
+
+**Zotero Highlight Color Scheme:**
+
+| Color | Meaning | Maps to section |
+|---|---|---|
+| Blue | Purpose and hypothesis | Purpose / Hypothesis |
+| Purple | Participant demographics | Participant Demographics |
+| Magenta | Methods, stats, equipment, metrics | Methods Details |
+| Red | Results | Results |
+| Yellow | Insightful text, intro/discussion arguments | Key Insights Extracted |
+
+The template routes highlights into the correct section by color automatically.
+
+---
+
+## Phase 2 — Import into Obsidian
+
+3. Run the **Zotero Integration import** command on the Zotero item.
     
-3. Extract **1–5 insight notes** into `02_Insights`.
-    
-4. Extract **reference data notes** into `04_Reference_Data` if numerical values are important.
-    
-5. Link insights and data to ontology nodes in `03_Ontology`.
+    This auto-populates: Purpose / Hypothesis, Participant Demographics, Methods Details, Results, and Key Insights raw highlights.
     
 
-Typical processing time:
+4. Manually fill in the remaining Study Context fields (short wikilink lists only, no prose):
+    - Population
+    - Sample Size
+    - Activity
+    - Methods (device names and systems)
+    - Statistics
+    - Metrics Studied
+    
+5. Update `status:` from `unread` to `reading`. (`reading` = imported and reviewed, insight files not yet created in `02_Insights/`. `processed` = all insight files created.)
+    
 
-~5 minutes per paper
+Typical time for steps 3–5: **5–10 minutes**.
+
+---
+
+## Phase 3 — Extract knowledge (can be deferred)
+
+6. In `Key Insights Extracted`: name each insight worth extracting as a wikilink (sentence-form title, e.g. `[[Heel pressure variability is elevated in early Parkinson's disease]]`). This naming is the hard cognitive work — do it while the paper is fresh.
+
+7. Create **reference data notes** in `04_Reference_Data` if the paper contains numerical values worth citing later. Link the note in the `Reference Data Extracted` section of the paper note.
+
+8. Create the actual **insight note files** in `02_Insights`. This step can be deferred or batched. The yellow highlights in `Key Insights Extracted` serve as the body-text draft. Fill the YAML frontmatter and write one sentence body.
+
+9. Link insights and reference data to ontology nodes in `03_Ontology`.
+    
+
+**Time-minimization rule:** Do not create insight files at reading time. Name them in the paper note (step 6) and create the files in one of two ways:
+- **On demand:** when writing a manuscript and needing to cite this insight, create the file at that moment
+- **Batch session:** periodically open the Processing Queue (see below) and work through all `status: reading` papers
+
+**How deferred insights stay findable:**
+
+Obsidian surfaces unresolved wikilinks automatically. Every insight name you wrote in step 6 without a corresponding file appears as an unresolved link in:
+- The **Outgoing Links panel** of that paper note (right sidebar)
+- The **graph view** as an orphaned node (a dot with no connected note)
+
+You do not need to remember which papers have pending insights. The paper note carries that information, and the `status: reading` field makes it queryable.
+
+**Processing Queue** — place the following Dataview query in a note (e.g. `00_Inbox/Processing Queue.md`) to see all papers with pending work at a glance:
+
+~~~
+```dataview
+TABLE year, status
+FROM "01_Papers"
+WHERE status = "reading"
+SORT year DESC
+```
+~~~
+
+When you open a `status: reading` paper from this list, the Outgoing Links panel shows you exactly which insight wikilinks are still unresolved. Set `status: processed` when all insight files are created.
+
+---
+
+## Updating a Note After New Highlights
+
+1. Add new highlights or Zotero notes to the item in Zotero.
+    
+2. Return to Obsidian and run the Zotero Integration import command again on the same item.
+    
+3. The import will update the imported content while preserving your manually edited sections (protected by `%% begin ... %%` / `%% end ... %%` persist markers).
+    
+
+**Caution:** Once a persisted block contains content you have manually edited, it will not be overwritten — even if it was messy to begin with. If the block is significantly wrong, edit it directly in Obsidian rather than expecting a re-import to fix it. When testing a heavily revised template, test on a fresh paper rather than a previously imported one.
 
 ---
 

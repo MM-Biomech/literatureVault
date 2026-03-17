@@ -1,0 +1,21 @@
+{
+  "database": "Zotero",
+  "noteImportFolder": "01_Papers",
+  "pdfExportImageDPI": 120,
+  "pdfExportImageFormat": "jpg",
+  "pdfExportImageQuality": 90,
+  "citeFormats": [],
+  "exportFormats": [
+    {
+      "name": "Create Paper Note",
+      "outputPathTemplate": "01_Papers/{{citekey}}.md",
+      "imageOutputPathTemplate": "01_Papers/figures/{{citekey}}/",
+      "imageBaseNameTemplate": "image",
+      "templatePath": "_templates/zotero_paper_notes.md",
+      "cslStyle": "apa"
+    }
+  ],
+  "citeSuggestTemplate": "[[{{citekey}}]]",
+  "openNoteAfterImport": true,
+  "whichNotesToOpenAfterImport": "first-imported-note"
+}
