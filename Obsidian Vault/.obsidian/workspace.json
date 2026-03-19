@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03_Ontology/activities/Straight-line walking.md",
+                "file": "_setup_files/Lab Vault System Architecture.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Straight-line walking"
+              "title": "Lab Vault System Architecture"
             }
           }
         ]
@@ -185,6 +185,13 @@
   },
   "active": "f85f04517e4e6db3",
   "lastOpenFiles": [
+    "_setup_files/Design insights.md",
+    "03_Ontology/ontology_map.md",
+    "_templates/project_note.md",
+    "00_Inbox/Insight Explorer.md",
+    "03_Ontology/populations/Healthy Older Adults.md",
+    "03_Ontology/activities/Straight-line walking.md",
+    "02_Insights/test.md",
     "03_Ontology/activities/Stairs Up.md",
     "03_Ontology/activities/Dual-task Walking.md",
     "03_Ontology/activities/Foot Strikes.md",
@@ -205,17 +212,10 @@
     "ANOVA.md",
     "00_Inbox/changelog.md",
     "01_Papers/monaghan2021ApplicationPrincipal.md",
-    "01_Papers/kim2026InsoleDerivedPlantar.md",
     "03_Ontology/Clinical Measure",
-    "03_Ontology/activities/Straight-line walking.md",
-    "01_Papers/soulard2021SpatiotemporalGait.md",
-    "04_Reference_Data/monaghan2021ApplicationPrincipal - Normative Data MS Fallers non fallers and controls.md",
-    "01_Papers/cheeInfluenceMultipleSclerosis2021.md",
     "01_Papers/figures/sharifbidabadiApplicationInertialMeasurements2017_fig12.png",
     "01_Papers/figures/monaghan2021ApplicationPrincipal/image-2-x114-y376.png",
     "01_Papers/figures/monaghan2021ApplicationPrincipal",
-    "_setup_files/Lab Vault System Architecture.md",
-    "00_Inbox/canTrustPressure is False.md",
     "01_Papers/figures/kim2026InsoleDerivedPlantar/image-3-x297-y611.png",
     "01_Papers/figures/kim2026InsoleDerivedPlantar/image-5-x34-y232.png",
     "01_Papers/figures/kim2026InsoleDerivedPlantar/image-6-x35-y198.png",

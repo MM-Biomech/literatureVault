@@ -1,16 +1,21 @@
-﻿# Variability
+# Healthy Older Adults
 
-Type: Metric Domain
+Type: Population
 
 Description:
-Metrics that describe the degree of step-to-step or stride-to-stride fluctuation in gait parameters. High variability reflects reduced automaticity of walking and greater cognitive-motor demand.
+Neurologically and orthopaedically intact adults typically aged 65 and older. Distinguished from [[Healthy Adults]] because age-related gait changes (reduced speed, increased double support time, greater variability) produce meaningfully different normative values. Used as age-matched controls when studying older neurological populations such as early-stage Parkinson's disease.
 
-Clinical significance:
-Gait variability is a sensitive marker of fall risk and neurological decline. It is often elevated before changes in mean pace become detectable, making it useful for early detection of impairment.
+Clinical scales:
 
-Metrics in this domain:
-- [[Stride Time Variability]]
-- [[Stride Length Variability]]
+Commonly studied activities:
+- [[Straight-line walking]]
+- [[Turning]]
+- [[Dual-task Walking]]
+
+Relevant gait metrics:
+- [[Stride Velocity]]
+- [[Stride Time]]
+- [[Cadence]]
 
 ---
 

@@ -2,6 +2,32 @@
 
 ---
 
+## 2026-03-17 — Sub-population Strategy, Insight Explorer, Manuscript Workflow
+
+### Added
+
+- `03_Ontology/populations/Healthy Older Adults.md` — first dedicated sub-population node; justified by distinct normative gait values and frequency as age-matched control group
+- `00_Inbox/Insight Explorer.md` — live Dataview dashboard with pre-built queries to retrieve insights by population, metric, domain, property, method, and citekey; includes query to flag insight notes with missing frontmatter fields
+- `_templates/project_note.md` — new template for `05_Projects/` notes; includes Relevant Insights and Relevant Papers Dataview queries, Reference Data table, and Open Questions section; auto-moves to `05_Projects/`
+- `03_Ontology/ontology_map.md` — replaced static text with live `LIST` Dataview queries for all 7 ontology categories; updates automatically as nodes are added
+
+### Changed
+
+- **All 27 ontology template and node files** — `## Referenced In` DataviewJS query updated to also check insight YAML frontmatter fields (`population`, `activity`, `metric`, `method`, `domain`, `property`) in addition to outgoing wikilinks; ensures insight notes show up in ontology backlinks even if no body wikilink is present
+- `_setup_files/Lab Vault System Architecture.md` — added:
+  - **Sub-population Handling** section documenting the 3-insight threshold rule and qualifier encoding strategy
+  - **Manuscript Writing Workflow** section with step-by-step guidance for using vault content in manuscripts (Introduction/Discussion, Methods, Results, reference list building)
+  - `project_note.md` added to templates table
+  - Query Strategy section updated to describe Insight Explorer as the primary retrieval tool for writing
+- `02_Insights/Impaired Dorsiflexion in Foot Drop.md` — restructured to match new insight template: YAML frontmatter populated with all fields, body reduced to claim + evidence prose; removed redundant `source:` field and label-value body lines
+
+### Decisions
+
+- Sub-population nodes are only created when 3+ insights share the same qualifier. Until then, specificity lives in insight titles (sentence form), YAML `population:` text, and parenthetical qualifiers in paper note Study Context.
+- `Insight Explorer` replaces ad-hoc searches for manuscript preparation; it is the canonical entry point for retrieving vault knowledge for writing.
+
+---
+
 ## 2026-03-11 — Initial Vault Structure Review
 
 ### Added

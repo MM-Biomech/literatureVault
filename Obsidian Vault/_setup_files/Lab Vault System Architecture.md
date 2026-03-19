@@ -255,6 +255,7 @@ Templates used when creating standardized notes.
 | `ontology_metric_domain.md` | Metric domain ontology node | `03_Ontology/metric_domains/` |
 | `ontology_property.md` | Property ontology node | `03_Ontology/properties/` |
 | `ontology_clinical_measure.md` | Clinical measure, scale, or performance test | `03_Ontology/Clinical Measure/` |
+| `project_note.md` | Active research project with linked insights and papers | `05_Projects/` |
 
 ---
 
@@ -697,17 +698,48 @@ Citation: @smithValidationStudy2024
 
 The system relies on **link-based querying** rather than rigid databases.
 
-Example workflow:
+**Ontology backlink query:**
 
 Search: Stride Time  
 ↓  
 Open Stride Time ontology page  
 ↓  
-View backlinks  
+View `## Referenced In` section (live query)  
 ↓  
-See all insights and reference data mentioning this metric
+See all papers and insights mentioning this metric
+
+**Insight retrieval for manuscript writing:**
+
+Open `00_Inbox/Insight Explorer.md`  
+↓  
+Filter by population, metric, domain, property, or method  
+↓  
+Click insight links to open full notes  
+↓  
+Copy claim sentences directly into manuscript draft
 
 This approach scales naturally as the vault grows.
+
+---
+
+# Sub-population Handling
+
+The vault uses **broad population nodes** as the canonical ontology unit. Sub-population specificity is encoded in three other places without creating extra nodes:
+
+1. **Insight title** — `[[Heel pressure variability is elevated in early Parkinson's disease]]` — the qualifier is in the sentence
+2. **Insight YAML `population:` field** — plain text, e.g. `population: Early Stage Parkinsons Disease` — searchable via Dataview
+3. **Paper note Study Context** — qualifier in parentheses next to the broad wikilink, e.g. `[[Parkinsons Disease]] — Early Stage (H&Y ≤ 2)`
+
+**Rule for creating a sub-population node:**
+Create a dedicated node when you have **3 or more insights** that share the same specific sub-population qualifier. Until that threshold is reached, use the broad node for wikilinks and record specificity as text.
+
+**Established sub-population nodes:**
+
+| Node | Parent | Rationale |
+|---|---|---|
+| `Healthy Older Adults` | `Healthy Adults` | Genuinely different normative gait values; appears frequently as an age-matched control group |
+
+**Do not pre-create** nodes for sub-populations you have not yet encountered in the literature. Add them when the threshold is reached.
 
 ---
 
@@ -802,6 +834,30 @@ When you open a `status: reading` paper from this list, the Outgoing Links panel
     
 
 **Caution:** Once a persisted block contains content you have manually edited, it will not be overwritten — even if it was messy to begin with. If the block is significantly wrong, edit it directly in Obsidian rather than expecting a re-import to fix it. When testing a heavily revised template, test on a fresh paper rather than a previously imported one.
+
+---
+
+# Manuscript Writing Workflow
+
+The vault is designed so that manuscripts can be assembled from existing notes rather than written from scratch.
+
+## Introduction / Discussion
+1. Open `00_Inbox/Insight Explorer.md`
+2. Filter by the relevant population, domain, or property
+3. Open each insight note — the claim sentence is manuscript-ready prose
+4. Cross-reference the paper note for context (Methods Details, Purpose/Hypothesis)
+
+## Methods Section
+1. Open the relevant ontology method nodes (e.g. `[[IMU]]`, `[[Bland-Altman]]`)
+2. `## Referenced In` shows which papers used this method — use these as citations
+3. Paper note `Methods Details` section contains the verbatim method descriptions from papers
+
+## Results Section
+1. Reference data notes contain structured numerical tables ready to adapt into manuscript tables
+2. Use `00_Inbox/Insight Explorer.md` filtered by `property = "Validation"` or `"Reliability"` to find the relevant claims
+
+## Building a Reference List
+Use the Insight Explorer to find all insights on a topic, note their `citekey` fields, then retrieve the full citation from Zotero.
 
 ---
 
