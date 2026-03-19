@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "03_Ontology/Clinical Measure/Stroop Word Test.md",
+                "file": "03_Ontology/activities/Straight-line walking.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Stroop Word Test"
+              "title": "Straight-line walking"
             }
           }
         ]
@@ -185,13 +185,20 @@
   },
   "active": "f85f04517e4e6db3",
   "lastOpenFiles": [
-    "03_Ontology/Clinical Measure/Untitled.md",
-    "03_Ontology/Clinical Measure/Stroop Word Test.md",
-    "03_Ontology/Clinical Measure/TUG.md",
+    "03_Ontology/activities/Stairs Up.md",
+    "03_Ontology/activities/Dual-task Walking.md",
+    "03_Ontology/activities/Foot Strikes.md",
+    "03_Ontology/activities/Stairs Down.md",
+    "_templates/ontology_metric.md",
+    "_templates/ontology_method.md",
     "_templates/ontology_clinical_measure.md",
+    "_templates/ontology_activity.md",
+    "03_Ontology/methods/IMU.md",
+    "03_Ontology/Clinical Measure/Stroop Word Test.md",
+    "03_Ontology/Clinical Measure/Untitled.md",
+    "03_Ontology/Clinical Measure/TUG.md",
     "00_Inbox/Processing Queue.md",
     "01_Papers/sharifbidabadiApplicationInertialMeasurements2017.md",
-    "03_Ontology/methods/IMU.md",
     "_templates/ontology_statistic.md",
     "03_Ontology/metrics/Foot Pitch Angle.md",
     "03_Ontology/Statistics",
@@ -199,13 +206,8 @@
     "00_Inbox/changelog.md",
     "01_Papers/monaghan2021ApplicationPrincipal.md",
     "01_Papers/kim2026InsoleDerivedPlantar.md",
-    "_templates/ontology_metric.md",
-    "_templates/ontology_method.md",
     "03_Ontology/Clinical Measure",
     "03_Ontology/activities/Straight-line walking.md",
-    "03_Ontology/activities/Stairs Up.md",
-    "03_Ontology/activities/Foot Strikes.md",
-    "03_Ontology/activities/Stairs Down.md",
     "01_Papers/soulard2021SpatiotemporalGait.md",
     "04_Reference_Data/monaghan2021ApplicationPrincipal - Normative Data MS Fallers non fallers and controls.md",
     "01_Papers/cheeInfluenceMultipleSclerosis2021.md",
@@ -214,8 +216,6 @@
     "01_Papers/figures/monaghan2021ApplicationPrincipal",
     "_setup_files/Lab Vault System Architecture.md",
     "00_Inbox/canTrustPressure is False.md",
-    "04_Reference_Data/kim2026InsoleDerivedPlantar - Smart Insole Validation.md",
-    "03_Ontology/metrics/Stride Time.md",
     "01_Papers/figures/kim2026InsoleDerivedPlantar/image-3-x297-y611.png",
     "01_Papers/figures/kim2026InsoleDerivedPlantar/image-5-x34-y232.png",
     "01_Papers/figures/kim2026InsoleDerivedPlantar/image-6-x35-y198.png",

@@ -1,5 +1,5 @@
-
-# [Statistic Name]
+﻿
+# <% tp.file.title %>
 
 Type: Statistic
 

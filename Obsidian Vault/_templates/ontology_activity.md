@@ -1,5 +1,5 @@
-<%* await tp.file.move("03_Ontology/activities/" + tp.file.title) %>
-# [Activity Name]
+﻿<%* await tp.file.move("03_Ontology/activities/" + tp.file.title) %>
+# <% tp.file.title %>
 
 Type: Activity
 

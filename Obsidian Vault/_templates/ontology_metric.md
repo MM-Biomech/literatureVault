@@ -1,5 +1,5 @@
-<%* await tp.file.move("03_Ontology/metrics/" + tp.file.title) %>
-# [Metric Name]
+﻿<%* await tp.file.move("03_Ontology/metrics/" + tp.file.title) %>
+# <% tp.file.title %>
 
 Type: Metric
 

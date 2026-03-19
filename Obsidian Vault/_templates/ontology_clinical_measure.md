@@ -1,5 +1,5 @@
-
-# [Clinical Measure Name]
+<%* await tp.file.move("03_Ontology/Clinical Measure/" + tp.file.title) %>
+# <% tp.file.title %>
 
 Type: Clinical Measure
 

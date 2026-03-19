@@ -1,5 +1,5 @@
-<%* await tp.file.move("03_Ontology/metric_domains/" + tp.file.title) %>
-# [Domain Name]
+﻿<%* await tp.file.move("03_Ontology/metric_domains/" + tp.file.title) %>
+# <% tp.file.title %>
 
 Type: Metric Domain
 

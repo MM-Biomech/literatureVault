@@ -1,5 +1,5 @@
-<%* await tp.file.move("03_Ontology/properties/" + tp.file.title) %>
-# [Property Name]
+﻿<%* await tp.file.move("03_Ontology/properties/" + tp.file.title) %>
+# <% tp.file.title %>
 
 Type: Property
 

@@ -145,5 +145,49 @@
 
 - Clinical measures live in `03_Ontology/Clinical Measure/` (already established by existing `Stroop Word Test.md`)
 - Clinical measures appearing in paper notes (e.g. `[[Hoehn and Yahr]]` inside a Population entry) may be typed as "Population" by the Processing Queue's section-detection heuristic; this is a known limitation — correct manually using the Type column
+- Property files do not include a Referenced In query — properties are used as plain-text YAML frontmatter fields in insight notes, not as wikilinks, so backlink queries would return no results
+
+---
+
+## 2026-03-17 — Ontology File Backfill
+
+### Updated
+
+All existing ontology files updated to match current templates:
+
+**Populations** (`cidp.md`, `Multiple Sclerosis.md`, `Healthy Adults.md`, `Foot Drop.md`, `Parkinsons Disease.md`):
+- Added `Description:` field to all
+- Renamed `Clinical scale:` → `Clinical scales:` for consistency
+- Fixed list formatting (added `-` bullet style)
+- Added `## Referenced In` DataviewJS query to all
+
+**Activities** (`Straight-line walking.md`, `Dual-task Walking.md`, `Turning.md`, `Foot Strikes.md`):
+- Added `Common populations studied:` field to all
+- Added `Description:` where missing
+- Restructured `Dual-task Walking.md` to match template (was using non-standard `Related metrics:` label; added `Common secondary tasks:` as a retained extra field)
+- Updated `Foot Strikes.md` from a bare definition note to full activity template structure
+- Added `## Referenced In` DataviewJS query to all
+
+**Methods** (`IMU.md`):
+- Fixed heading from `# [IMU]` to `# IMU`
+
+**Metrics** (`Stride Time.md`, `Symmetry Index.md`, `Symmetry Ratio.md`):
+- Added `Interpretation:` field to all
+- Moved inline interpretation notes from `Unit:` field into `Interpretation:` for SI and SR
+- Added `## Referenced In` DataviewJS query to all
+
+**Metric Domains** (`Rhythm.md`, `Pace.md`, `Variability.md`, `Asymmetry.md`, `Postural Control.md`):
+- Added `Description:` field to all
+- Added `Clinical significance:` field to all
+- Updated `Asymmetry.md` metrics list to include `[[Symmetry Index]]` and `[[Symmetry Ratio]]`
+- Added `## Referenced In` DataviewJS query to all
+
+**Properties** (`Reliability.md`, `Validation.md`, `Detection.md`, `Clinical Association.md`, `Sensitivity.md`, `Variability.md`):
+- Added `Common statistics:` field with relevant wikilinked statistics to all
+- Referenced In query omitted — properties are stored as plain-text YAML in insight notes, not as wikilinks
+
+**Clinical Measures** (`Stroop Word Test.md`):
+- Fully restructured to `ontology_clinical_measure.md` template
+- Added: Purpose, Administration, Score range, Interpretation, Conditions description, Relevant populations, Referenced In query
 
 ---

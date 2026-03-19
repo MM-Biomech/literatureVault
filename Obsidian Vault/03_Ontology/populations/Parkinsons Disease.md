@@ -1,18 +1,45 @@
 # Parkinson's Disease
 
-Type: Population  
-  
-Clinical scale:  
-[[HY]]
+Type: Population
 
-  
-Commonly studied activities:  
-[[Straight-line walking]]  
-[[Turning]]  
-[[Stairs Up]]
-[[Stairs Down]]
+Description:
+A progressive neurodegenerative disorder characterized by dopaminergic cell loss in the substantia nigra. Motor symptoms include tremor, rigidity, bradykinesia, and postural instability. Gait is commonly impaired with reduced stride length, velocity, and cadence, along with increased variability and freezing of gait in later stages.
 
-Relevant gait metrics:  
-[[Stride Velocity]]  
-[[Stride Time]]  
-[[Turn Duration]]
+Clinical scales:
+- [[HY]]
+- [[UPDRS]]
+
+Commonly studied activities:
+- [[Straight-line walking]]
+- [[Turning]]
+- [[Dual-task Walking]]
+- [[Stairs Up]]
+- [[Stairs Down]]
+
+Relevant gait metrics:
+- [[Stride Velocity]]
+- [[Stride Time]]
+- [[Stride Length]]
+- [[Turn Duration]]
+
+---
+
+## Referenced In
+
+```dataviewjs
+const path = dv.current().file.path;
+const papers = dv.pages('"01_Papers"')
+    .where(p => p.file.outlinks.some(l => l.path === path))
+    .sort(p => p.year, 'desc');
+const insights = dv.pages('"02_Insights"')
+    .where(p => p.file.outlinks.some(l => l.path === path));
+
+papers.length > 0
+    ? dv.table(["Paper", "Year", "Status"], papers.map(p => [p.file.link, p.year, p.status]))
+    : dv.paragraph("_No papers indexed yet._");
+
+if (insights.length > 0) {
+    dv.header(4, "Insights");
+    dv.list(insights.map(p => p.file.link));
+}
+```

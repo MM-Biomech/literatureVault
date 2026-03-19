@@ -1,5 +1,5 @@
 
-# [IMU]
+# IMU
 
 Type: Measurement Method
 

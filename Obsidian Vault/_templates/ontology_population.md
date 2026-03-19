@@ -1,5 +1,5 @@
-<%* await tp.file.move("03_Ontology/populations/" + tp.file.title) %>
-# [Population Name]
+﻿<%* await tp.file.move("03_Ontology/populations/" + tp.file.title) %>
+# <% tp.file.title %>
 
 Type: Population
 

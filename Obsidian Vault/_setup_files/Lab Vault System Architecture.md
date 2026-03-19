@@ -141,7 +141,7 @@ On **re-import** (after adding new highlights in Zotero):
     metrics/  
     metric_domains/  
     properties/  
-    Clinical Measure/  
+    Clinical Measure/
 04_Reference_Data/  
 05_Projects/  
 06_Manuscripts/  
@@ -300,15 +300,13 @@ Note: Clinical conditions that are not populations per se (e.g. Foot Drop) may a
 Examples:
 
 - Straight-line Walking
-    
 - Turning
-    
+- Dual-task Walking
 - Stairs Up
-    
 - Stairs Down
-    
 - Free-living Walking
-    
+
+Note: Performance tests that involve walking (e.g. TUG, 10MWT, 6MWT) are housed in `Clinical Measure/` rather than `activities/`, because they are standardised clinical tools with defined scoring and interpretation rather than pure movement tasks.
 
 ---
 
@@ -317,15 +315,31 @@ Examples:
 Examples:
 
 - Instrumented Insoles
-    
 - IMU
-    
 - Motion Capture
-    
 - Force Plates
-    
 - Activity Recognition
-    
+
+Note: Statistical methods (ICC, Bland-Altman, Pearson Correlation, etc.) are also housed in `methods/` and use `ontology_statistic.md` as their template.
+
+---
+
+## Clinical Measures
+
+Examples:
+
+- Hoehn and Yahr
+- EDSS
+- TUG
+- 10MWT
+- Stroop Word Test
+- UPDRS
+
+Clinical measures include disease severity scales, standardised performance tests, cognitive assessments, and patient-reported outcomes. They are housed in `03_Ontology/Clinical Measure/` and use the `ontology_clinical_measure.md` template.
+
+The template includes: Purpose, Administration (clinician-administered / self-report / performance-based), Score range, Interpretation, optional Equation, MDC, MCID, Relevant populations, and Referenced In query.
+
+Note: Clinical measures referenced inside the `Population:` section of a paper note (e.g. `[[Hoehn and Yahr]] stage ≤ 2`) may be typed as "Population" by the Processing Queue's unresolved link detector. Correct manually using the Type column.
 
 ---
 

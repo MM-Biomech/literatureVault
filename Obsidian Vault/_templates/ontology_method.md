@@ -1,5 +1,5 @@
-<%* await tp.file.move("03_Ontology/methods/" + tp.file.title) %>
-# [Method Name]
+﻿<%* await tp.file.move("03_Ontology/methods/" + tp.file.title) %>
+# <% tp.file.title %>
 
 Type: Measurement Method
 
