@@ -7,15 +7,39 @@ status: reading
 ## Study Context
 %% begin study-context %%
 Population:
-- [[]]
+- [[Multiple Sclerosis]] - [[Relapse Remitting]]
+- [[Multiple Sclerosis Fallers]]
+- [[Healthy Adults]]
+
+| Measure                                   | MS (n = 122)   | CON (n = 45)  |             |
+| :---------------------------------------- | :------------- | :------------ | :---------- |
+| Mean (SD)                                 | Mean (SD)      | p-value       |             |
+| Age                                       | 45.51 (9.05)   | 43.71 (9.54)  | 0.26        |
+| Sex (female/male)                         | 96/26          | 37/8          | –           |
+| Height (m)                                | 1.67 (0.10)    | 1.66 (0.11)   | 0.70        |
+| Weight (kg)                               | 79.5 (20.51)   | 73.11 (16.14) | 0.06        |
+| Fallers/non-fallers                       | 42/79          | 6/39          | –           |
+| [[EDSS]] (range)                          | 2.00 (0.0–5.5) | –             | –           |
+| Physical functioning ([[SF-36]])          | 72.89 (24.60)  | 96.11 (5.32)  | **< 0.001** |
+| Energy and fatigue ([[SF-36]])            | 46.69 (22.12)  | 70.44 (15.59) | **< 0.001** |
+| [[Berg balance scale]]                    | 53.07 (4.84)   | –             | –           |
+| [[Falls efficacy scale]]                  | 25.78 (8.51)   | 18.13 (2.17)  | **< 0.001** |
+| [[Stroop word test]] (interference score) | 20.12 (5.47)   | 7.34 (3.64)   | **< 0.001** |
 
 Sample Size:
- - 
+ - 122 PwMS
+ - 45 age-matched controls
 Activity:
-- [[]]
+- [[TUG]]
 
 Methods:
-- [[]]
+- [[EDSS]]
+- [[Berg balance scale]]
+- [[SF-36]]
+- [[Falls efficacy scale]]
+- [[Stroop word test]]
+- [[IMU]] - Opal whole body (128 Hz). Six sensors placed on the feet, wrists, chest, and lumbar region of the lower back.
+- 
 
 Statistics:
 - [[]]
@@ -32,21 +56,7 @@ Participant Demographics:
 - (p. 6) 45 age-matched controls
 - (p. 7) PwMS were classified into two groups; non-fallers (MS-NF) and fallers (MS-F) based on their self-reported fall history in the previous six months
 
-|Measure|MS (n = 122)|CON (n = 45)||
-|:--|:--|:--|:--|
-|Mean (SD)|Mean (SD)|p-value|
-|:--|:--|:--|
-|Age|45.51 (9.05)|43.71 (9.54)|0.26|
-|Sex (female/male)|96/26|37/8|–|
-|Height (m)|1.67 (0.10)|1.66 (0.11)|0.70|
-|Weight (kg)|79.5 (20.51)|73.11 (16.14)|0.06|
-|Fallers/non-fallers|42/79|6/39|–|
-|EDSS (range)|2.00 (0.0–5.5)|–|–|
-|Physical functioning (SF-36)|72.89 (24.60)|96.11 (5.32)|**< 0.001**|
-|Energy and fatigue (SF-36)|46.69 (22.12)|70.44 (15.59)|**< 0.001**|
-|Berg balance scale|53.07 (4.84)|–|–|
-|Falls efficacy scale|25.78 (8.51)|18.13 (2.17)|**< 0.001**|
-|Stroop word test (interference score)|20.12 (5.47)|7.34 (3.64)|**< 0.001**|
+
 
 
 
@@ -55,14 +65,13 @@ Methods Details:
 - (p. 7) The Expanded Disability Status Scale (EDSS)40 was used to measure disease severity.  Functional mobility was assessed using the Berg Balance Scale (BBS)41
 - (p. 7) Short Form-36 (SF-36)
 - (p. 7) SF-36, we include (1) The Energy and Fatigue subscale to assess fatigue and (2) the Physical Functioning subscale to capture physical health
-- (p. 7) Subjective fallrisk was obtained via the Falls Efficacy Scale International (FES-I)
+- (p. 7) Subjective fall risk was obtained via the Falls Efficacy Scale International (FES-I)
 - (p. 7) Executive function was assessed with the Stroop Color and Word Test36,44,45
-- (p. 7) (1) read the name of colors [W]), (2) identified the color of rectangles patches [C]), and (3) identified the color of the ink of words with incongruent color-word combinations [CW]. In each condition, participants recited as many responses as possible over thirty seconds. The interference score was calculated as
-  - Note: IG = CW − [W ∗ C]  [W + C]
+- (p. 7) (1) 
 where IG: interference score. CW, W, and C are the number of correct responses in the CW, W, and C conditions,  respectively44. Larger IG values reflect better scores.
 - (p. 7) Falls were operationally defined as "An unexpected  event in which the participants come to rest on the ground, floor, or lower level”46.
 - (p. 7) Gait data were computed from the instrumented timed up  and go (iTUG) assessment, a reliable and valid measure of gait and turning6,47. Participants were instructed to stand up from the chair, walk just past a line placed 7 m straight ahead at a comfortable pace, turn around, walk back, and sit down. The iTUG was extended from the traditional 3 m to enable the computation of gait cycle data. Participants completed three iTUG trials
-- (p. 7) Gait data were collected using Opal wireless inertial sensors (128 Hz). Six sensors placed on the feet, wrists, chest, and lumbar region of the lower back were utilized.
+- (p. 7) Gait data were collected using Opal wireless inertial sensors 
 - (p. 7) Mobility Lab software (Version 2) (Opal Sensors, APDM Inc., Portland, OR) was used to stream  and export gait metrics automatically48.
 - (p. 7) To ensure an adequate number of gait cycles, data from each participant’s three iTUG trials were appended. After appending data, the median (range) of gait cycle observations was 20 (12–26) for controls, 21 (11–43) for MS non-fallers, and 22 (15–43) for MS fallers
 - (p. 7) Mean spatiotemporal parameters, averaged across the right and left limbs, kinematic measures, turning parameters, variability metrics, and asymmetry measures were then assessed

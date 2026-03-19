@@ -141,6 +141,7 @@ On **re-import** (after adding new highlights in Zotero):
     metrics/  
     metric_domains/  
     properties/  
+    Clinical Measure/  
 04_Reference_Data/  
 05_Projects/  
 06_Manuscripts/  
@@ -200,6 +201,8 @@ These notes define concepts such as:
 
 **Ontology nodes do not use YAML frontmatter.** All structure is expressed through body text and wikilinks. This keeps creation overhead low.
 
+All ontology node templates include a **Referenced In** section at the bottom — a live DataviewJS query that automatically lists every paper and insight note that links to this node. This makes each ontology note a knowledge hub: definition + literature coverage + derived insights, all in one place. No manual maintenance required.
+
 ---
 
 ## 04_Reference_Data
@@ -234,18 +237,20 @@ Contains this architecture document, design notes, and exported Zotero library f
 
 Templates used when creating standardized notes.
 
-| Template | Purpose |
-|---|---|
-| `zotero_paper_notes.md` | Canonical paper note template; used by Zotero Integration plugin |
-| `citations_paper_note.md` | Legacy Citations plugin template (kept for reference) |
-| `insight_note.md` | Insight note with full frontmatter |
-| `reference_data.md` | Reference data table with example columns |
-| `ontology_population.md` | Population ontology node |
-| `ontology_activity.md` | Activity ontology node |
-| `ontology_method.md` | Method ontology node |
-| `ontology_metric.md` | Metric ontology node including equation field |
-| `ontology_metric_domain.md` | Metric domain ontology node |
-| `ontology_property.md` | Property ontology node |
+| Template | Purpose | Auto-moves to |
+|---|---|---|
+| `zotero_paper_notes.md` | Canonical paper note template; used by Zotero Integration plugin | `01_Papers/` |
+| `citations_paper_note.md` | Legacy Citations plugin template (kept for reference only) | — |
+| `insight_note.md` | Insight note with YAML frontmatter | `02_Insights/` |
+| `reference_data.md` | Reference data tables (reliability, agreement, group comparison) | `04_Reference_Data/` |
+| `ontology_population.md` | Population ontology node | `03_Ontology/populations/` |
+| `ontology_activity.md` | Activity ontology node | `03_Ontology/activities/` |
+| `ontology_method.md` | Measurement method ontology node | `03_Ontology/methods/` |
+| `ontology_statistic.md` | Statistical method ontology node | `03_Ontology/methods/` |
+| `ontology_metric.md` | Metric ontology node with equation and interpretation fields | `03_Ontology/metrics/` |
+| `ontology_metric_domain.md` | Metric domain ontology node | `03_Ontology/metric_domains/` |
+| `ontology_property.md` | Property ontology node | `03_Ontology/properties/` |
+| `ontology_clinical_measure.md` | Clinical measure, scale, or performance test | `03_Ontology/Clinical Measure/` |
 
 ---
 
@@ -755,16 +760,15 @@ Obsidian surfaces unresolved wikilinks automatically. Every insight name you wro
 
 You do not need to remember which papers have pending insights. The paper note carries that information, and the `status: reading` field makes it queryable.
 
-**Processing Queue** — place the following Dataview query in a note (e.g. `00_Inbox/Processing Queue.md`) to see all papers with pending work at a glance:
+**Processing Queue** — `00_Inbox/Processing Queue.md` contains three live Dataview queries:
 
-~~~
-```dataview
-TABLE year, status
-FROM "01_Papers"
-WHERE status = "reading"
-SORT year DESC
-```
-~~~
+1. **Papers pending insight extraction** — all `status: reading` paper notes
+2. **Unresolved ontology references** — short wikilinks (< 7 words) used in paper or insight notes that have no corresponding file yet; these are likely populations, activities, methods, metrics, or statistics nodes that need to be created in `03_Ontology/`; the table shows which note(s) referenced each missing item
+3. **All papers by status** — full overview of the pipeline
+
+The unresolved ontology query uses a word-count heuristic to separate ontology-type links (short noun phrases) from insight-type links (sentence-form titles). The threshold is 7 words.
+
+To use the Processing Queue, open it and:
 
 When you open a `status: reading` paper from this list, the Outgoing Links panel shows you exactly which insight wikilinks are still unresolved. Set `status: processed` when all insight files are created.
 

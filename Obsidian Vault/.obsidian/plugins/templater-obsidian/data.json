@@ -45,6 +45,14 @@
     {
       "folder": "03_Ontology/properties",
       "template": "_templates/ontology_property.md"
+    },
+    {
+      "folder": "03_Ontology/Clinical Measure",
+      "template": "_templates/ontology_clinical_measure.md"
+    },
+    {
+      "folder": "03_Ontology/Statistics",
+      "template": "_templates/ontology_statistic.md"
     }
   ],
   "enable_file_templates": false,

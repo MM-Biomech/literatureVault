@@ -1,5 +1,6 @@
-Source: [[citekey]]
-Citation: @citekey
+<%* await tp.file.move("04_Reference_Data/" + tp.file.title) %>
+Source: [[]]
+Citation: @
 
 Population: [[]] (N= )
 Method: [[]]

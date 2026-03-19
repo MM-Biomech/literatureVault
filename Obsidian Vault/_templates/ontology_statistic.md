@@ -1,17 +1,22 @@
-<%* await tp.file.move("03_Ontology/populations/" + tp.file.title) %>
-# [Population Name]
 
-Type: Population
+# [Statistic Name]
 
-Description:
+Type: Statistic
 
-Clinical scales:
-- [[]]
+Purpose:
 
-Commonly studied activities:
-- [[]]
+Formula / Equation:
+$$
 
-Relevant gait metrics:
+$$
+
+Interpretation:
+- 
+
+Assumptions / When to use:
+- 
+
+Common uses:
 - [[]]
 
 ---

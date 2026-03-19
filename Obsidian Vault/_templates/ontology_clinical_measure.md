@@ -1,17 +1,30 @@
-<%* await tp.file.move("03_Ontology/populations/" + tp.file.title) %>
-# [Population Name]
 
-Type: Population
+# [Clinical Measure Name]
 
-Description:
+Type: Clinical Measure
 
-Clinical scales:
-- [[]]
+Purpose:
 
-Commonly studied activities:
-- [[]]
+Administration:
+<!-- clinician-administered / self-report / performance-based -->
 
-Relevant gait metrics:
+Score range:
+
+Interpretation:
+- Higher scores indicate:
+- Lower scores indicate:
+
+Equation:
+<!-- Delete if not applicable -->
+$$
+
+$$
+
+MDC:
+MCID:
+<!-- Delete fields above if not reported or not applicable -->
+
+Relevant populations:
 - [[]]
 
 ---

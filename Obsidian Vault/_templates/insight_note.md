@@ -1,3 +1,4 @@
+<%* await tp.file.move("02_Insights/" + tp.file.title) %>
 ---
 type: insight
 population:
@@ -6,22 +7,12 @@ metric:
 domain:
 property:
 method:
-source:
 citekey:
 ---
 
+Claim statement here.
 
+Evidence:
 
-
-
-
-# Insight: metric + effect + condition
-
-Statement:
-
-Population:
-Activity:
-Metric:
-Property:
-
-Source:
+Reference Data:
+- [[]]

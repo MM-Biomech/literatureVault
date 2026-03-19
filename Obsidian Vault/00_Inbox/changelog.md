@@ -74,7 +74,7 @@
 - `01_Papers/kim2026InsoleDerivedPlantar.md` — first paper note created via Zotero Integration; includes color-routed highlights and persist blocks
 - `01_Papers/figures/kim2026InsoleDerivedPlantar/` — embedded figures extracted during import
 - `04_Reference_Data/kim2026InsoleDerivedPlantar - Smart Insole Validation.md` — reference data note with reliability (ICC) and validation (Bland-Altman) tables for spatiotemporal metrics
-- `00_Inbox/Processing Queue.md` — Dataview dashboard listing all papers with `status: reading` (pending insight extraction) and all papers by status
+- `00_Inbox/Processing Queue.md` — Dataview dashboard with three sections: papers pending insight extraction (`status: reading`), unresolved ontology references (short wikilinks with no corresponding file, sourced from paper and insight notes), and all papers by status
 
 ### Updated
 
@@ -97,5 +97,53 @@
 - Insight files in `02_Insights/` should be named at reading time as wikilinks in the paper note but created later — either on-demand when cited in a manuscript, or in a batch session using the Processing Queue
 - Unresolved insight wikilinks are surfaced by Obsidian's Outgoing Links panel and graph view; no separate tracking needed
 - Dataview plugin required for Processing Queue queries; must be installed from Community Plugins
+- Unresolved ontology references are tracked via a DataviewJS query that scans `01_Papers/` and `02_Insights/` for short wikilinks (< 7 words) with no corresponding file; insight-style sentence links are excluded by the word-count filter
+
+---
+
+## 2026-03-17 — Template Overhaul
+
+### Added
+
+- `_templates/ontology_statistic.md` — new template for statistical methods (ICC, Bland-Altman, Pearson, ANOVA, etc.); auto-moves to `03_Ontology/methods/`
+
+### Updated
+
+- All ontology templates now include `tp.file.move()` to auto-place files in the correct `03_Ontology/` subfolder on creation via Templater
+- `_templates/insight_note.md` — removed duplicate body fields (Population, Activity, Metric, Property, Source were repeated from YAML); streamlined body to claim + Evidence + Reference Data; removed redundant `source:` field; added auto-move to `02_Insights/`
+- `_templates/reference_data.md` — added auto-move to `04_Reference_Data/`; clarified `[[citekey]]` placeholder
+- `_templates/ontology_metric.md` — added `Interpretation:` field (higher/lower values)
+- `_templates/ontology_activity.md` — added `Common populations studied:` field
+- `_templates/ontology_method.md` — added `Key specifications:` field (sampling rate, sensor type)
+- `_templates/ontology_property.md` — added `Common statistics:` field
+- `_templates/ontology_metric_domain.md` — added `Clinical significance:` field
+- `_templates/citations_paper_note.md` — added deprecation notice; no longer in active use
+- `_setup_files/Lab Vault System Architecture.md` — updated templates table with auto-move destinations; added `ontology_statistic.md`
+- `00_Inbox/Processing Queue.md` — added Type → Template → Destination lookup table in Unresolved Ontology References section; fixed type detection for `## Metrics Studied` heading (was bleeding Statistics label into Metrics section)
+
+### Decisions Recorded
+
+- Statistics (ICC, Bland-Altman, etc.) use `ontology_statistic.md` and live in `03_Ontology/methods/` alongside measurement methods
+- All templates use `tp.file.move()` so "Create new note from template" always places files in the correct folder with no manual move required
+- `insight_note.md` body contains only the claim, Evidence, and Reference Data — YAML frontmatter carries all structured metadata; body duplication removed
+- All ontology templates include a `## Referenced In` DataviewJS section showing papers (with year and status) and insights that link to the node; this is partially redundant with Obsidian's native Backlinks panel but adds value by filtering to papers/insights only, showing metadata, and being visible in the note body without opening the sidebar
+
+---
+
+## 2026-03-17 — Clinical Measure Template
+
+### Added
+
+- `_templates/ontology_clinical_measure.md` — new template for clinical measures, performance tests, and severity scales (e.g. Hoehn & Yahr, EDSS, TUG, Stroop, 10MWT); fields include Purpose, Administration, Score range, Interpretation, Equation (optional), MDC, MCID, Relevant populations, and Referenced In query; auto-moves to `03_Ontology/Clinical Measure/`
+
+### Updated
+
+- `_setup_files/Lab Vault System Architecture.md` — added `Clinical Measure/` to folder structure and templates table
+- `00_Inbox/Processing Queue.md` — added Clinical Measure row to Type → Template lookup table
+
+### Decisions Recorded
+
+- Clinical measures live in `03_Ontology/Clinical Measure/` (already established by existing `Stroop Word Test.md`)
+- Clinical measures appearing in paper notes (e.g. `[[Hoehn and Yahr]]` inside a Population entry) may be typed as "Population" by the Processing Queue's section-detection heuristic; this is a known limitation — correct manually using the Type column
 
 ---
