@@ -2,6 +2,47 @@
 
 ---
 
+## 2026-03-17 — Better BibTeX Documentation + Zotero Team Sharing
+
+### Added
+
+- `_setup_files/Lab Vault System Architecture.md` — new sections:
+  - **Required Zotero Plugin: Better BibTeX** — installation, citekey format, pinning recommendation
+  - **Team Literature Sharing** — Zotero Groups as the shared library mechanism, what syncs through Zotero vs. Git, storage tier comparison, WebDAV alternative
+- `_setup_files/QUICKSTART.md` — new Step 2: Set Up Zotero (Better BibTeX install, citekey format configuration, joining the shared group library)
+- `README.md` — added Better BibTeX to prerequisites table; added **Shared Zotero Library** section explaining the Git vs. Zotero split
+
+### Removed
+
+- `_setup_files/Celestra.bib`, `_setup_files/My Library.bib`, `_setup_files/My Library.json` — stale exports from the old Citations plugin workflow; no longer needed since Zotero Integration connects directly to Zotero via the Better BibTeX API
+
+### Decisions
+
+- PDFs and `.bib` files belong in Zotero, not Git. Git stores only Obsidian notes, templates, and plugin configuration.
+- Team literature sharing uses Zotero Groups (equivalent to Mendeley shared libraries). Each member syncs independently through their zotero.org account.
+
+---
+
+## 2026-03-17 — Removed Citations Plugin
+
+### Removed
+
+- **Citations plugin** (`obsidian-citation-plugin`) — fully removed from the repository; plugin files, settings, and `community-plugins.json` entry deleted
+- `_templates/citations_paper_note.md` — legacy template removed; `zotero_paper_notes.md` is the sole paper note template
+
+### Rationale
+
+The Citations plugin was originally used for citekey resolution, `.bib` file management, and pandoc citation syntax. With Zotero Integration handling all paper note creation, Citations had no remaining role in the active workflow. Manuscripts are written in Word using the Zotero Word plugin, which manages citations independently. The Citations plugin was also the only source of a machine-specific absolute path in the repository (the `.bib` file path), which would have broken the setup for any collaborator who cloned the repo.
+
+### Changed
+
+- `_setup_files/Lab Vault System Architecture.md` — removed all Citations plugin references; updated plugin roles table and templates table
+- `_setup_files/LLM_CONTEXT.md` — updated plugin architecture section
+- `_setup_files/QUICKSTART.md` — completely rewritten to reflect that all plugins are pre-installed in the repo (no manual installation required); added Zotero Word plugin to prerequisites; simplified Steps 3–5
+- `README.md` — updated prerequisites table and Step 5/6 to reflect trust-and-go plugin setup
+
+---
+
 ## 2026-03-17 — Sub-population Strategy, Insight Explorer, Manuscript Workflow
 
 ### Added

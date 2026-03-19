@@ -9,7 +9,7 @@ Read this file before helping with any vault task.
 
 This is a **biomechanics and rehabilitation engineering lab** focused on:
 
-- **Wearable sensor-based gait analysis** — primarily using inertial measurement units (IMUs) and instrumented insoles
+- **Wearable sensor-based gait analysis** — primarily using inertial measurement units (IMUs) and instrumented insoles with logical and machine learning algorithms
 - **Neurological populations** — Parkinson's disease, Multiple Sclerosis (MS), Chronic Inflammatory Demyelinating Polyneuropathy (CIDP), Foot Drop
 - **Validation and clinical translation** — establishing whether wearable-derived gait metrics agree with lab-grade reference systems (e.g. motion capture, force plates) and correlate with clinical outcomes
 - **Method development** — algorithms for gait event detection, spatiotemporal parameter estimation, ambulatory monitoring
@@ -19,6 +19,8 @@ Key vocabulary:
 - **Gait domains** — Pace, Rhythm, Variability, Asymmetry, Postural Control (standard clinical framework)
 - **Common clinical scales** — EDSS (MS severity), Hoehn and Yahr (PD severity), UPDRS (PD motor function), TUG (Timed Up and Go), MCID (minimum clinically important difference), MDC (minimal detectable change)
 - **Common statistics** — ICC (intraclass correlation coefficient), Bland-Altman (method agreement), Pearson correlation, SEM (standard error of measurement)
+
+
 
 ---
 
@@ -124,12 +126,27 @@ citekey: authorYearKeyword
 
 ## Plugin Architecture
 
+### Zotero plugins (installed in Zotero, not Obsidian)
+
 | Plugin | Role |
 |---|---|
-| **Zotero Integration** | Imports paper notes from Zotero using Nunjucks template; routes highlights by color |
-| **Citations** | `.bib` file management and citekey resolution for pandoc citations; does NOT create notes |
+| **Better BibTeX** | Generates stable citekeys (e.g. `kim2026InsoleDerivedPlantar`); exposes a local JSON-RPC API that Zotero Integration uses to connect to Zotero |
+| **Zotero Word Plugin** | Inserts citations into Word manuscripts from the Zotero library; not used within Obsidian |
+
+### Obsidian plugins (pre-installed in this repository)
+
+| Plugin | Role |
+|---|---|
+| **Zotero Integration** | Imports paper notes from Zotero using Nunjucks template; routes highlights by colour into correct sections |
 | **Dataview** | Powers all live query tables (Processing Queue, Insight Explorer, Referenced In) |
 | **Templater** | Note creation from templates with `tp.file.move()` auto-routing to correct folder |
+| **Table Editor** | Markdown table formatting convenience |
+
+### What is NOT in Obsidian
+
+- Citation management is handled by the Zotero Word plugin in Word
+- There is no `.bib` file in this repository — it is not needed
+- PDFs are stored and synced through Zotero, not Git
 
 ---
 

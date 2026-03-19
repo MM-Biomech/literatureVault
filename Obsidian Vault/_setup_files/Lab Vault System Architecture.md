@@ -64,21 +64,13 @@ Zotero and Obsidian serve different roles.
 Zotero is the **bibliographic database** and should store:
 
 - authors
-    
 - journal
-    
 - publication year
-    
 - DOI
-    
 - abstract
-    
 - keywords
-    
 - PDFs
-    
 - citation metadata
-    
 
 These should **not be duplicated inside Obsidian properties**.
 
@@ -89,28 +81,86 @@ These should **not be duplicated inside Obsidian properties**.
 Obsidian stores:
 
 - conceptual knowledge
-    
 - insights extracted from literature
-    
 - relationships between concepts
-    
 - numerical reference values
-    
 
 Obsidian functions as a **knowledge graph built on top of the literature database**.
 
 ---
 
-## Plugin Roles
+## Required Zotero Plugin: Better BibTeX
 
-Two plugins handle the connection between Zotero and Obsidian. They serve distinct roles and coexist without conflict.
+**Better BibTeX (BBT)** is a Zotero plugin (not an Obsidian plugin) that must be installed for the Zotero Integration connection to work.
+
+Install it from: [retorque.re/zotero-better-bibtex/installation/](https://retorque.re/zotero-better-bibtex/installation/)
+
+What it does:
+- Generates stable, unique **citekeys** for every item in your library (e.g. `kim2026InsoleDerivedPlantar`)
+- Exposes a **local JSON-RPC API** that the Zotero Integration Obsidian plugin uses to search your library and retrieve metadata and annotations on import
+- Optionally auto-exports a `.bib` file (not needed for this vault — manuscripts use the Zotero Word plugin)
+
+**Citekey format:** All lab members must use the same BBT citekey format to ensure citekeys are consistent across the shared library. The recommended format is:
+
+```
+[auth:lower][year][title:select:1:1:capitalize][title:select:2:2:capitalize][title:select:3:3:capitalize]
+```
+
+This produces keys like `kim2026InsoleDerivedPlantar`. Configure this in Zotero → Better BibTeX → Open Better BibTeX Preferences → Citation Keys.
+
+**Pin citekeys after creation:** Once a paper note has been created with a citekey, that key should not change. Right-click any Zotero item → Better BibTeX → Pin BibTeX key. This prevents the key from regenerating if BBT settings change.
+
+---
+
+## Team Literature Sharing
+
+The lab uses **Zotero Groups** for shared literature — this is the Zotero equivalent of Mendeley's shared libraries.
+
+### How it works
+
+1. A group library is created on [zotero.org](https://www.zotero.org/groups/)
+2. All lab members join the group (invite by email)
+3. Papers added to the group library automatically sync to all members' Zotero clients
+4. PDFs sync through Zotero's servers (subject to storage limits — see below)
+5. Each member's BBT generates the same citekey for each paper (if configured identically)
+
+**What syncs through Zotero (not Git):**
+- Paper metadata (authors, title, journal, year, DOI, abstract)
+- PDFs and other attachments
+- Zotero annotations and highlights (the raw source for Zotero Integration imports)
+- Tags and collections
+
+**What syncs through Git (this repo):**
+- Obsidian paper notes, insight notes, reference data, ontology nodes
+- Templates, dashboards, architecture documentation
+- Plugin code and settings
+
+PDFs and `.bib` files are **not stored in this Git repository**. Git is not suited for large binary files, and Zotero is already handling PDF sync.
+
+### Storage limits
+
+| Plan | Storage | Cost |
+|---|---|---|
+| Free | 300 MB | — |
+| 2 GB | 2 GB | $20/year |
+| 6 GB | 6 GB | $60/year |
+| Unlimited | Unlimited | $120/year |
+
+Storage applies to file attachments (PDFs). Metadata syncs for free regardless of plan. For a shared group library with many PDFs, the 2 GB or 6 GB plan is recommended.
+
+**Alternative (free unlimited PDF storage):** Use **WebDAV** to store attachments on your own server or a supported cloud service (Koofr offers free WebDAV). Configure this in Zotero → Preferences → Sync → File Syncing → WebDAV.
+
+---
+
+## Obsidian Plugin Roles
+
+The Zotero Integration plugin handles the full connection between Zotero and Obsidian.
 
 | Plugin | Role |
 |---|---|
-| **Citations** | Citekey resolution, `.bib` file management, pandoc cite syntax |
 | **Zotero Integration** | Importing highlights, annotations, and metadata into paper notes |
 
-Paper notes are created via Zotero Integration, not Citations.
+Citation management for manuscripts (Word) is handled directly through the **Zotero Word plugin** — not through any Obsidian plugin.
 
 ---
 
@@ -174,7 +224,7 @@ Paper notes serve as **navigation hubs linking insights and extracted data**.
 
 Paper notes are created using the **Zotero Integration plugin**, which imports highlights, annotations, and metadata directly from Zotero. See `_templates/zotero_paper_notes.md` for the canonical structure.
 
-The **Citations plugin** still coexists and is used solely for citekey resolution and `.bib` file management. It does not create paper notes.
+Citation management for manuscripts is handled via the **Zotero Word plugin** outside Obsidian.
 
 ---
 
@@ -250,7 +300,6 @@ Templates used when creating standardized notes.
 | Template | Purpose | Auto-moves to |
 |---|---|---|
 | `zotero_paper_notes.md` | Canonical paper note template; used by Zotero Integration plugin | `01_Papers/` |
-| `citations_paper_note.md` | Legacy Citations plugin template (kept for reference only) | — |
 | `insight_note.md` | Insight note with YAML frontmatter | `02_Insights/` |
 | `reference_data.md` | Reference data tables (reliability, agreement, group comparison) | `04_Reference_Data/` |
 | `ontology_population.md` | Population ontology node | `03_Ontology/populations/` |
@@ -469,7 +518,7 @@ The purpose of properties is to enable **knowledge queries**, not to recreate Zo
 
 # Paper Note Properties
 
-Paper notes require only minimal metadata. The **Zotero Integration plugin** auto-fills `citekey` and `year` from Zotero when creating a note. The **Citations plugin** handles citekey resolution in the `.bib` file but does not create paper notes.
+Paper notes require only minimal metadata. The **Zotero Integration plugin** auto-fills `citekey` and `year` from Zotero when creating a note.
 
 Example frontmatter:
 
