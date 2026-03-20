@@ -35,7 +35,6 @@ Purpose / Hypothesis:
 
 Methods Details:
 
-- (p. 2) 
 - (p. 2) sensor data sampled at 40 Hz
 - (p. 2) Spatiotemporal gait parameters including velocity, cadence, stride length, stride time, and swing ratio
 - (p. 3) VICON system was equipped with ten cameras and two separate force plates (60 × 50 cm) for each foot, with a sampling frequency of 100 Hz.

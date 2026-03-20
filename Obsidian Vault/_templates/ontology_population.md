@@ -1,4 +1,4 @@
-﻿<%* await tp.file.move("03_Ontology/populations/" + tp.file.title) %>
+<%* await tp.file.move("03_Ontology/populations/" + tp.file.title) %>
 # <% tp.file.title %>
 
 Type: Population
@@ -20,10 +20,12 @@ Relevant gait metrics:
 
 ```dataviewjs
 const path = dv.current().file.path;
+const currentTitle = dv.current().file.name;
+
 const papers = dv.pages('"01_Papers"')
     .where(p => p.file.outlinks.some(l => l.path === path))
     .sort(p => p.year, 'desc');
-const currentTitle = dv.current().file.name;
+
 const insights = dv.pages('"02_Insights"')
     .where(p =>
         p.file.outlinks.some(l => l.path === path) ||
@@ -32,6 +34,9 @@ const insights = dv.pages('"02_Insights"')
             .some(v => String(v ?? '').toLowerCase() === currentTitle.toLowerCase())
     );
 
+const refData = dv.pages('"04_Reference_Data"')
+    .where(p => p.file.outlinks.some(l => l.path === path));
+
 papers.length > 0
     ? dv.table(["Paper", "Year", "Status"], papers.map(p => [p.file.link, p.year, p.status]))
     : dv.paragraph("_No papers indexed yet._");
@@ -39,5 +44,10 @@ papers.length > 0
 if (insights.length > 0) {
     dv.header(4, "Insights");
     dv.list(insights.map(p => p.file.link));
+}
+
+if (refData.length > 0) {
+    dv.header(4, "Reference Data");
+    dv.list(refData.map(p => p.file.link));
 }
 ```

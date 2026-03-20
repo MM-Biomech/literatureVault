@@ -2,6 +2,34 @@
 
 ---
 
+## 2026-03-17 — Processing Queue Expansion, Insight Template Fix, Reference Data in Referenced In
+
+### Added
+
+- `00_Inbox/Processing Queue.md` — two new sections:
+  - **Missing Insight Files** — DataviewJS query using reverse ontology logic: unresolved wikilinks with 7+ words in paper notes = named insights without files; shows source paper for each
+  - **Incomplete Insight Notes** — Dataview query flagging insight files in `02_Insights/` missing `citekey`, `population`, or `metric`; catches notes created by clicking a link but never filled in
+- Processing Queue now covers the full pipeline in 5 stages: papers pending extraction → missing insight files → incomplete insight notes → missing ontology nodes → all papers by status
+
+### Changed
+
+- **`_templates/insight_note.md`** — two fixes:
+  - Moved `<%* tp.file.move() %>` to after the closing `---` (previously before, which prevented Obsidian from parsing the block as YAML frontmatter — caused raw text rendering)
+  - Replaced broken inline YAML comments (also broke parsing) with an HTML comment block below the frontmatter; block is invisible in reading view but shows valid options and examples for every field when editing
+- **`_templates/ontology_metric.md` + all 5 metric nodes** (Cadence, Stance Time, Stride Time, Symmetry Index, Symmetry Ratio) — Referenced In query now includes a Reference Data section listing `04_Reference_Data/` notes that wikilink to the metric
+- **`_templates/ontology_population.md` + all 6 population nodes** (CIDP, Foot Drop, Healthy Adults, Healthy Older Adults, Multiple Sclerosis, Parkinsons Disease) — same Reference Data addition to Referenced In
+- `_setup_files/Lab Vault System Architecture.md` — updated:
+  - Ontology section: clarified Referenced In now includes Reference Data for metric and population nodes
+  - Processing Queue description: updated from 3 to 5 sections with per-section usage guidance
+  - Insight Note Properties: added plain text YAML rule with autocomplete warning, template structure note explaining why move command must follow `---`
+
+### Decisions
+
+- The 7-word threshold cleanly separates ontology links from insight links and is used by both the ontology query (< 7 words) and the missing insight query (7+ words) — two sides of the same filter
+- Reference Data is added to metric and population Referenced In only (not activities, methods, etc.) because reference data tables consistently wikilink their Metric and Population columns but not other fields
+
+---
+
 ## 2026-03-17 — Better BibTeX Documentation + Zotero Team Sharing
 
 ### Added

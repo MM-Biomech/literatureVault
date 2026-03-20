@@ -257,7 +257,10 @@ These notes define concepts such as:
 
 **Ontology nodes do not use YAML frontmatter.** All structure is expressed through body text and wikilinks. This keeps creation overhead low.
 
-All ontology node templates include a **Referenced In** section at the bottom — a live DataviewJS query that automatically lists every paper and insight note that links to this node. This makes each ontology note a knowledge hub: definition + literature coverage + derived insights, all in one place. No manual maintenance required.
+All ontology node templates include a **Referenced In** section at the bottom — a live DataviewJS query that automatically lists every paper, insight note, and reference data note that links to this node. This makes each ontology note a knowledge hub: definition + literature coverage + derived insights + numerical data, all in one place. No manual maintenance required.
+
+- **Metric and Population nodes** show Papers, Insights, and Reference Data (reference data notes wikilink both their Metric and Population columns)
+- **All other node types** show Papers and Insights only
 
 **Exception:** Property nodes (`02_Insights/` YAML uses `property:` as plain text, not a wikilink) do not include a Referenced In query as it would return no results.
 
@@ -565,18 +568,20 @@ method: IMU
 citekey: authorYearKeyword  
 ---
 
-**All YAML values must be plain text — no wikilinks `[[...]]`.** Dataview reads YAML as raw strings; wikilinks in YAML break all Insight Explorer and Processing Queue queries.
+**All YAML values must be plain text — no wikilinks `[[...]]`.** Dataview reads YAML as raw strings; wikilinks in YAML break all Insight Explorer and Processing Queue queries. Obsidian's autocomplete will suggest `[[...]]` inside frontmatter — always ignore it for YAML fields.
 
 Valid `domain` values: `Pace` / `Rhythm` / `Variability` / `Asymmetry` / `Postural Control`  
-Valid `property` values: `Reliability` / `Validation` / `Clinical Association` / `Sensitivity` / `Detection` / `Variability`
+Valid `property` values: `Reliability` / `Validation` / `Clinical Association` / `Sensitivity` / `Detection` / `Variability`  
+`method` is optional — skip if unclear; the method is already captured in the source paper note.
+
+The `insight_note.md` template includes an HTML comment block immediately below the frontmatter with examples for every field. It is invisible in reading view but visible when editing.
+
+**Template structure note:** The Templater auto-move command (`<%* tp.file.move() %>`) is placed *after* the closing `---` of the frontmatter, not before it. This is required — if the script tag precedes `---`, Obsidian cannot recognise the block as YAML frontmatter and renders it as raw text.
 
 These properties allow insights to be queried using:
 
-- Obsidian Bases
-    
-- Dataview
-    
-- graph exploration
+- Dataview (Insight Explorer, Processing Queue)
+- Graph exploration (wikilinks in the note body connect to ontology nodes)
     
 
 ---
@@ -868,19 +873,22 @@ Obsidian surfaces unresolved wikilinks automatically. Every insight name you wro
 
 You do not need to remember which papers have pending insights. The paper note carries that information, and the `status: reading` field makes it queryable.
 
-**Processing Queue** — `00_Inbox/Processing Queue.md` contains three live Dataview queries:
+**Processing Queue** — `00_Inbox/Processing Queue.md` contains five live queries covering every stage of the pipeline:
 
-1. **Papers pending insight extraction** — all `status: reading` paper notes
-2. **Unresolved ontology references** — short wikilinks (< 7 words) used in paper or insight notes that have no corresponding file yet; these are likely populations, activities, methods, metrics, or statistics nodes that need to be created in `03_Ontology/`; the table shows which note(s) referenced each missing item
-3. **All papers by status** — full overview of the pipeline
+1. **Papers pending insight extraction** — all `status: reading` paper notes; open each and use the Outgoing Links panel to see unresolved insight wikilinks
+2. **Missing insight files** — sentence-form wikilinks (7+ words) in paper notes that point to no existing file; these are named insights waiting to be created
+3. **Incomplete insight notes** — insight files that exist in `02_Insights/` but have empty `citekey`, `population`, or `metric` fields; created by clicking a link but not yet filled in
+4. **Unresolved ontology references** — short wikilinks (< 7 words) in paper or insight notes with no corresponding file; likely ontology nodes to be created in `03_Ontology/`
+5. **All papers by status** — full pipeline overview
 
-The unresolved ontology query uses a word-count heuristic to separate ontology-type links (short noun phrases) from insight-type links (sentence-form titles). The threshold is 7 words.
+The word-count threshold (7 words) cleanly separates ontology-type links (short noun phrases) from insight-type links (sentence-form titles). Queries 2 and 4 use opposite sides of this same filter.
 
 To use the Processing Queue:
 
-- Papers in the first table are ready for insight extraction — open each one and use the **Outgoing Links panel** (right sidebar) to see which insight wikilinks are still unresolved
-- Missing ontology items in the second table can be created via **Templater: Create new note from template** — choose the template matching the Type column; the file will auto-move to the correct ontology subfolder
-- Set `status: processed` on a paper note when all its insight files have been created
+- **Papers (1):** open the paper, use the Outgoing Links panel to find unresolved insight links, set `status: processed` when all insight files are created
+- **Missing insights (2):** run **Templater: Create new note from template** → `insight_note.md`, name it exactly as shown, fill YAML and claim sentence
+- **Incomplete insights (3):** open each note and fill the empty YAML fields; use the Yellow highlight text in the source paper note as a body draft
+- **Ontology (4):** run **Templater: Create new note from template**, choose the template matching the Type column; the file auto-moves to the correct subfolder
 
 ---
 
