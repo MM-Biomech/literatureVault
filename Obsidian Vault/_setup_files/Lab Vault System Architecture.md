@@ -528,6 +528,7 @@ Example frontmatter:
 ---  
 type: paper  
 citekey: smithValidationInsoles2024  
+title: "Full article title"  
 year: 2024  
 status: unread  
 ---
@@ -595,6 +596,7 @@ Below is the structure produced by the Zotero Integration template. Imported sec
 ---
 type: paper
 citekey: smithValidationInsoles2024
+title: "Title of the paper as it appears in the source"
 year: 2024
 status: unread
 ---
@@ -611,13 +613,21 @@ Sample Size:                         (fill manually)
 Activity:                            (fill manually)
 - [[Straight-line Walking]] (10MWT, comfortable speed)
 
-Methods:                             (fill manually)
+Protocol:                            (fill manually — task design: distance, trials, speed condition, instructions)
+- 10 m corridor, comfortable speed, standardised turn instructions
+
+Devices:                             (fill manually — wikilinks to measurement hardware/software in 03_Ontology/methods/)
 - [[Instrumented Insoles]]
 - [[Motion Capture]]
 
 Statistics:                          (fill manually)
 - [[ICC]]
 - [[Bland-Altman]]
+
+Metrics Studied:                     (fill manually — wikilinks to 03_Ontology/metrics/)
+- [[Stride Time]]
+- [[Stride Length]]
+- [[Stride Velocity]]
 
 Purpose / Hypothesis:                (auto-filled from Blue highlights)
 - (p. 1) To validate insole-derived gait metrics against motion capture in healthy adults.
@@ -628,15 +638,6 @@ Participant Demographics:            (auto-filled from Purple highlights)
 Methods Details:                     (auto-filled from Magenta highlights)
 - (p. 2) Insoles sampled at 100 Hz; motion capture at 200 Hz.
 %% end study-context %%
-
----
-
-## Metrics Studied
-%% begin metrics-studied %%
-- [[Stride Time]]                    (fill manually)
-- [[Stride Length]]
-- [[Stride Velocity]]
-%% end metrics-studied %%
 
 ---
 
@@ -677,6 +678,9 @@ Methods Details:                     (auto-filled from Magenta highlights)
 - Use wikilinks and brief parenthetical clarifiers only - no full sentences
 - Brief notes in parentheses are fine to disambiguate (e.g. device model, protocol variant)
 - If a thought requires a verb, it belongs in an insight note, not here
+- `Protocol:` captures task design (distance, trials, speed condition, environment, turn instructions) — plain text phrases
+- `Devices:` captures measurement hardware and software — wikilinks to `03_Ontology/methods/` nodes
+- `Metrics Studied:` is placed here (above the auto-filled highlights) so it stays visible alongside the other manual fields; link to `03_Ontology/metrics/` nodes
 
 **Key Insights Extracted has two zones:**
 - Wikilinks to completed insight files at the top - written manually (e.g. [[Insight title here]])
@@ -724,14 +728,18 @@ Insight notes are designed to be **directly reusable in manuscripts**.
 
 Reference data notes store **numerical results extracted from papers**.
 
-These usually correspond to:
+**One note per research question the data answers**, not one note per paper. A single paper may warrant multiple reference data notes if it presents data that serves distinct retrieval purposes.
 
-- one table
-    
-- one dataset
-    
-- one group of related numerical results
-    
+**The splitting test:** if you can describe the note with a single noun phrase (e.g. "Normative CoV Values"), it is one note. If you need "and" to describe it (e.g. "Normative CoV Values and Stride Count Thresholds"), it should be two notes.
+
+**Why this matters:** reference data notes are retrieved via backlinks on their `Metric` and `Population` wikilinks. A note containing two unrelated datasets will surface in searches where only one of them is relevant — noise for the reader.
+
+Examples of correct splitting:
+- `kroneberg2019LessMore — Normative CoV Values by Group` (retrieved when: contextualising group CoV results)
+- `kroneberg2019LessMore — Minimum Strides for Reliable CoV Estimation` (retrieved when: justifying stride count in methods)
+
+Examples of correct single notes:
+- `kim2026InsoleDerivedPlantar — Smart Insole Validation` (one coherent question: how well do insoles agree with motion capture?)
 
 Note naming convention:
 
@@ -822,7 +830,8 @@ Create a dedicated node when you have **3 or more insights** that share the same
 | Purple | Participant demographics | Participant Demographics |
 | Magenta | Methods, stats, equipment, metrics | Methods Details |
 | Red | Results | Results |
-| Yellow | Insightful text, intro/discussion arguments | Key Insights Extracted |
+| Yellow | Citable findings from this paper that you believe | Key Insights Extracted |
+| Orange | Claims cited from other papers worth chasing — breadcrumbs to follow-up reading | Follow-up Citations |
 
 The template routes highlights into the correct section by color automatically.
 
@@ -839,9 +848,10 @@ The template routes highlights into the correct section by color automatically.
     - Population
     - Sample Size
     - Activity
-    - Methods (device names and systems)
+    - Protocol (task design — distance, trials, speed condition, instructions)
+    - Devices (wikilinks to hardware/software nodes in `03_Ontology/methods/`)
     - Statistics
-    - Metrics Studied
+    - Metrics Studied (wikilinks to `03_Ontology/metrics/` — lives inside Study Context, above the auto-filled highlights)
     
 5. Update `status:` from `unread` to `reading`. (`reading` = imported and reviewed, insight files not yet created in `02_Insights/`. `processed` = all insight files created.)
     

@@ -1,4 +1,4 @@
----
+﻿---
 type: insight
 population: Foot Drop
 activity: Straight-line walking
@@ -7,6 +7,7 @@ domain:
 property: Sensitivity
 method: IMU
 citekey: sharifbidabadiApplicationInertialMeasurements2017
+contested: false
 ---
 
 Foot drop patients do not achieve a negative foot pitch angle during swing phase, indicating failure to dorsiflex.

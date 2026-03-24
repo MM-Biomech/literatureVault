@@ -1,4 +1,4 @@
-# Vault Quickstart
+﻿# Vault Quickstart
 
 Welcome. This guide gets you from zero to processing your first paper in one session.
 For full architectural detail, see `Lab Vault System Architecture.md`.
@@ -100,9 +100,12 @@ Use the built-in Zotero PDF reader. Highlight text using these colours — the t
 | Purple | Participant demographics |
 | Magenta | Methods, equipment, statistics |
 | Red | Key results |
-| Yellow | Insightful statements worth extracting as claims |
+| Yellow | Findings from this paper that you believe and could cite in a manuscript |
+| Orange | Claims cited from other papers worth chasing — highlights a paper you should find and read | Follow-up Citations |
 
-> **Tip for Yellow highlights:** After highlighting, right-click → Add comment and write your own framing of the insight in plain language. This comment imports directly into the note's Key Insights section and saves you rewriting it later. Use double square brackets around key words and insights to expedite the process [[]]
+> **Before highlighting in Yellow, ask:** can I write a one-sentence declarative claim right now? If not, do not highlight. A well-processed paper yields 3–6 Yellow highlights — not 15. See `_setup_files/Highlighting Guidelines.md` for the full discipline framework, including what to do when you disagree with a paper's claim.
+
+> **Tip for Yellow highlights:** After highlighting, right-click → Add comment and write your own framing of the claim in plain language — the sentence you would put in a manuscript. This comment imports directly into the note and becomes the draft for your insight note title.
 
 ### Import into Obsidian
 
@@ -117,10 +120,11 @@ Open the new note. Sections filled from your highlights (Purpose, Demographics, 
 
 - **Population** — `[[Parkinsons Disease]]`
 - **Sample Size** — `N=24 (12 PD, 12 controls)`
-- **Activity** — `[[Straight-line walking]]`
-- **Methods** — `[[IMU]]`
+- **Activity** — `[[Straight-line Walking]]`
+- **Protocol** — `10 m corridor, 5 laps, comfortable pace, no turn instructions`
+- **Devices** — `[[IMU]]` (wikilinks to hardware/software ontology nodes)
 - **Statistics** — `[[ICC]]`, `[[Bland-Altman]]`
-- **Metrics Studied** — `[[Stride Time]]`, `[[Cadence]]`
+- **Metrics Studied** — `[[Stride Time]]`, `[[Cadence]]` (wikilinks to metric ontology nodes)
 
 Change `status: unread` to `status: reading` in the YAML frontmatter at the top of the note.
 

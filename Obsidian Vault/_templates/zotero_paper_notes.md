@@ -1,6 +1,7 @@
 ---
 type: paper
 citekey: {{citekey}}
+title: "{{title}}"
 year: {{date | format("YYYY")}}
 status: unread
 ---
@@ -11,14 +12,22 @@ Population:
 
 Sample Size:
  - 
+
 Activity:
 - [[]]
 
-Methods:
+Protocol:
+- 
+
+Devices:
 - [[]]
 
 Statistics:
 - [[]]
+
+Metrics Studied:
+- [[]]
+
 Purpose / Hypothesis:
 {% for annotation in annotations -%}
 {%- if annotation.colorCategory == "Blue" and annotation.annotatedText %}
@@ -48,13 +57,6 @@ Methods Details:
 {%- endif %}
 {%- endif -%}
 {%- endfor %}
-{% endpersist %}
-
----
-
-## Metrics Studied
-{% persist "metrics-studied" %}
-- [[]]
 {% endpersist %}
 
 ---
@@ -91,6 +93,20 @@ Methods Details:
 ## Reference Data Extracted
 {% persist "reference-data" %}
 - [[]]
+{% endpersist %}
+
+---
+
+## Follow-up Citations
+{% persist "follow-up" %}
+{% for annotation in annotations -%}
+{%- if annotation.colorCategory == "Orange" and annotation.annotatedText %}
+- {% if annotation.page %}(p. {{annotation.page}}) {% endif %}{{annotation.annotatedText}}
+{%- if annotation.comment %}
+  - Find: {{annotation.comment}}
+{%- endif %}
+{%- endif -%}
+{%- endfor %}
 {% endpersist %}
 
 ---

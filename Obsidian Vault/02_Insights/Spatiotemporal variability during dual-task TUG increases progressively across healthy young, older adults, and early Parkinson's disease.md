@@ -1,4 +1,4 @@
----
+﻿---
 type: insight
 population: Parkinsons Disease
 activity: TUG
@@ -7,6 +7,7 @@ domain: Variability
 property: Sensitivity
 method: Smart insole
 citekey: kim2026InsoleDerivedPlantar
+contested: false
 ---
 
 Spatiotemporal variability during dual-task TUG increases progressively from healthy young adults to healthy older adults to early Parkinson's disease.

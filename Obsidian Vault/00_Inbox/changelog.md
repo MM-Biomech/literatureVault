@@ -2,6 +2,87 @@
 
 ---
 
+## 2026-03-24 — Reference Data Splitting Rule
+
+### Changed
+
+- **`_setup_files/Lab Vault System Architecture.md`** — Reference Data Notes section rewritten to establish the one-note-per-research-question rule: split by the question the data answers, not by paper; includes the "and test", rationale (backlink noise), and concrete examples from Kroneberg
+- **`_setup_files/LLM_CONTEXT.md`** — Reference Data Note spec updated with the same splitting rule
+
+### Added
+
+- `04_Reference_Data/kroneberg2019LessMore — Normative CoV Values by Group` — mean CoV and SD for stride length and stride time across HE, PD, ATX, ET groups
+- `04_Reference_Data/kroneberg2019LessMore — Minimum Strides for Reliable CoV Estimation` — stride count thresholds (N to reach R > 0.8) by group and metric
+
+### Decisions
+
+- One reference data note per research question, not per paper. The practical test: if the note needs "and" to describe its contents, split it.
+
+---
+
+## 2026-03-24 — Paper Note Cleanup, Insight Extraction, Contested Field Rollout
+
+### Added
+
+- **4 new insight notes** from `kroneberg2019LessMore`:
+  - `Proprietary turn excision algorithms can fail and artificially inflate gait variability CoV`
+  - `Walking turns elevate CoV of spatiotemporal parameters when not excluded from gait analysis`
+  - `Gait variability CoV stabilises within 15 strides in movement disorder groups`
+  - `Turn detection algorithms may fail to identify wide-radius turns with low horizontal acceleration`
+- **5 insight wikilinks** added to `monaghan2021ApplicationPrincipal.md` Key Insights (named but files not yet created — visible in Processing Queue as missing insight files)
+
+### Changed
+
+- **`02_Insights/` — all 4 existing insight files** updated to include `contested: false` in YAML frontmatter; field now consistent across the vault
+- **`01_Papers/kroneberg2019LessMore.md`** — Key Insights cleaned: removed 14 Type 1/2 highlights (background theory and cross-paper citations); retained 4 valid Type 3 findings as draft material under the new insight wikilinks
+- **`01_Papers/kim2026InsoleDerivedPlantar.md`** — Key Insights cleaned: removed 4 residual raw highlights (all Type 1/2); paper was already `status: processed` with 3 wikilinks; section now contains only the finalised insight links
+- **`01_Papers/monaghan2021ApplicationPrincipal.md`** — Key Insights cleaned: removed 12 Type 1/2 highlights; retained 10 valid Type 3 draft highlights; added 5 named insight wikilinks at the top
+
+### Decisions
+
+- `soulard2021SpatiotemporalGait.md` and `sharifbidabadi2017ApplicationInertial.md` were already clean — no changes needed
+- The Kroneberg 15-stride finding for movement disorder groups is extracted as `contested: false` for now; the counter-insight (`Reliable CoV estimation requires at least 25 strides in healthy older adults`) should be created when the lab's own analysis is ready to cite
+
+---
+
+## 2026-03-24 — Paper Note Restructure, Highlighting Discipline, Contested Insights, Breadcrumb Trail
+
+### Added
+
+- `_setup_files/Highlighting Guidelines.md` — new reference document covering:
+  - Four types of highlightable text and which color each uses
+  - The insight note title test as a gate for Yellow highlights
+  - Two disagreement scenarios (drop it vs. extract as contested foil) with worked examples
+  - Orange highlights as breadcrumbs to cited papers worth following up on
+- **Orange highlight color** — new sixth color in the Zotero highlight scheme; populates a new `## Follow-up Citations` section in paper notes; captures claims from cited papers worth chasing, preserving the context of why they were flagged
+- **`contested:` YAML field** in `_templates/insight_note.md` — optional field; use `contested: true` when an insight is needed as a contrasting foil in manuscripts but is contradicted by your own or others' evidence; omit when not contested
+
+### Changed
+
+- **`_templates/zotero_paper_notes.md`** — four structural changes:
+  - Added `title: "{{title}}"` to YAML frontmatter (auto-filled from Zotero on import)
+  - Split `Methods:` field into `Protocol:` (task design) and `Devices:` (hardware/software wikilinks)
+  - Moved `Metrics Studied` inside the `study-context` persist block, immediately after the manual fields and before the auto-filled highlights — eliminates the need to scroll past long highlight blocks to find it; removed the separate `## Metrics Studied` section
+  - Added `## Follow-up Citations` section before `## Notes`, populated by Orange highlights
+- **`01_Papers/kroneberg2019LessMore.md`** — updated to match new template structure:
+  - Added `title:` to YAML
+  - Split `Methods:` into `Protocol:` and `Devices:`
+  - Moved metrics into `Metrics Studied:` inside Study Context
+  - Cleaned Key Insights to remove background theory and cross-paper citations; retained only Type 3 findings
+  - Added `## Follow-up Citations` with König 2014 and König 2016 breadcrumbs
+- **`_setup_files/QUICKSTART.md`** — updated Study Context field list (Protocol/Devices replacing Methods; Metrics Studied noted as inside Study Context); updated Yellow highlight description; added reference to Highlighting Guidelines
+- **`_setup_files/LLM_CONTEXT.md`** — updated paper note spec, insight note spec (`contested:` field), highlight color scheme table (Orange added), workflow checklist
+- **`_setup_files/Lab Vault System Architecture.md`** — updated paper note example, Study Context rules, workflow checklist, color scheme table
+
+### Decisions
+
+- Yellow highlights must pass the "insight note title test": you must be able to write a one-sentence declarative claim immediately. Background theory, study rationale, and claims sourced from other papers do not qualify. A well-processed paper yields 3–6 Yellow highlights.
+- Orange is the breadcrumb color. It does not assert belief in the claim — it asserts that the source paper is worth finding and reading. The Zotero comment field records *which* paper to find and *why*.
+- `contested: true` is used exclusively when a claim needs to appear in the vault as a foil for contrasting findings in manuscript writing. Contested claims are not extracted if there is no manuscript use for them.
+- `Metrics Studied` is now part of the `study-context` persist block to keep all manual-fill fields visible together above the auto-filled highlight blocks.
+
+---
+
 ## 2026-03-17 — Processing Queue Expansion, Insight Template Fix, Reference Data in Referenced In
 
 ### Added

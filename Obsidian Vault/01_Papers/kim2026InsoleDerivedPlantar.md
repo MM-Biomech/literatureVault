@@ -1,4 +1,4 @@
----
+﻿---
 type: paper
 citekey: kim2026InsoleDerivedPlantar
 year: 2026
@@ -75,12 +75,6 @@ Methods Details:
 - [[People with early Parkinson's disease have lower peak pressure at heel strike and more forefoot loading]]
 - [[Spatiotemporal variability during dual-task TUG increases progressively across healthy young, older adults, and early Parkinson's disease]]
 - [[Pressure profiles may be more sensitive than spatiotemporal in early Parkinson's disease]]
-
-- (p. 2) Notably, patients with PD exhibit distinct plantar pressure profiles compared with healthy controls, including diminished heelstrike pressure, increased forefoot loading, and altered center of pressure (COP) trajectories [17], [18], [19].
-- (p. 7) While all groups exhibited reduced spatiotemporal gait performance under the dual-task condition, the absence of group differences indicates that these parameters may not be sensitive enough to capture subtle impairments in EPD.
-- (p. 7) distinct alterations in plantar pressure metrics suggest that these metrics indicate impaired motor automaticity and reduced postural control under a cognitive load earlier than conventional spatiotemporal parameters.
-- (p. 7) APAs are central feed-forward mechanisms that shift the COP posteriorly and laterally to enable a stable center of mass transfer [37]. In PD, APAs are often impaired with delayed or reduced timing and duration [38].
-  - Note: APA = anticipatory postural adjustments
 %% end key-insights %%
 
 ---

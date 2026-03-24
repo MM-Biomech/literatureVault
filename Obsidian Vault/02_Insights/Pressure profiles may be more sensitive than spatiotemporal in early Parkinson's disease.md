@@ -1,4 +1,4 @@
----
+﻿---
 type: insight
 population: Parkinsons Disease
 activity: TUG
@@ -7,6 +7,7 @@ domain: Postural Control
 property: Sensitivity
 method: Smart insole
 citekey: kim2026InsoleDerivedPlantar
+contested: false
 ---
 All groups (healthy older, younger, and early Parkinson's disease) had poorer spatiotemporal metrics during dual task; however, there weren't any group differences. Pressure values did have differences, indicating that postural control was impaired.
 

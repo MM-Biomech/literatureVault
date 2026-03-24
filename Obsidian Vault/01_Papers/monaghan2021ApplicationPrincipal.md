@@ -1,4 +1,4 @@
----
+﻿---
 type: paper
 citekey: monaghan2021ApplicationPrincipal
 year: 2021
@@ -123,36 +123,22 @@ MS-NF = non-fallers
 
 ## Key Insights Extracted
 %% begin key-insights %%
-- [[]]
+- [[PCA identifies six gait domains in MS: pace rhythm variability asymmetry AP and ML dynamic stability]]
+- [[Pace and asymmetry domains are impaired in MS fallers relative to non-fallers]]
+- [[Pace domain in MS is associated with fear of falling executive function and functional mobility]]
+- [[Gait variability domain explains more variance in MS and PD gait than in healthy adults]]
+- [[Turn parameters load onto the pace domain in MS gait PCA]]
 
-- In older adults8–10, Parkinson’s  disease (PD)11, and cognitively impaired12 populations, researchers have begun to address this issue by using principal component analyses to identify domains of gait.
-- Lord and colleagues extended this work by  expanding the model to include asymmetry and postural control domains
-- Verghese et al. identified three orthogonal  components of gait in older adults: pace, rhythm, and variability
 - (p. 3) six distinct gait domains: pace, rhythm, variability, asymmetry, AP, and ML dynamic stability
-- (p. 5) many of the loadings are compatible with older adults with the pace domain encompassing stride velocity and length, the component containing the cadence and temporal  parameters9.
 - (p. 5) compared to neurotypical adults, both PD and MS models show the gait variability domain to explain more of the total variance than asymmetry than controls.
-- (p. 5) gait variability is a more salient component of pathological gait.
-- (p. 5) The inclusion of trunk kinematics in gait models is warranted, particularly in PwMS,  who exhibit a larger trunk range of motion and variability in the ML direction1
 - (p. 5) the number of turns and peak turn velocity loaded onto the pace domain.
 - (p. 5) PwMS, who had reported at least one fall in the previous six months, walked significantly slower than those who had not fallen
 - (p. 5) all seven gait variables that loaded on the pace domain were statistically different between the two groups
 - (p. 5) at a time when the clinical evaluation of gait is advancing with technology, the low-tech quantification of pace (e.g., a stopwatch) may provide an effective and inexpensive approach to measure gait, suitable for clinical settings.
-- (p. 5) asymmetric gait is not necessarily an uncoordinated gait25.
-- (p. 5) future  studies should include coordination measures such as the phase coordination index25, as this measure may also  be a relevant outcome for PwMS23
-  - Note: look into what the phase coordination index is
-Plotnik, M., Giladi, N. & Hausdorff, J. M. A new measure for quantifying the bilateral coordination of human gait: Effects of aging and Parkinson’s disease. Exp. Brain Res. 181, 561–570 (2007).
 - (p. 5) Only the pace domain was significantly associated with quality-of-life outcomes
-- (p. 5) Upwards of 60% of PwMS report a fear of falling, and this outcome has been linked to gait impairments, including lower walking speed and increased stride time variability, and shorter stride lengths29,30.
-  - Note: 29. Scholz, M., Haase, R., Trentzsch, K., Weidemann, M. L. & Ziemssen, T. Fear of falling and falls in people with multiple sclerosis: A literature review. Mult. Scler. Relat. Disord. 47 (2021). 30. Laidet, M. et al. Does fear of falling predict gait variability in multiple sclerosis?. J. Neurol. Sci. 380, 212–214 (2017).
-- (p. 5) A  recent meta-analysis showed cognition also to be associated with gait speed in older adults31
-  - Note: Peel, N. M., Alapatt, L. J., Jones, L. V. & Hubbard, R. E. The association between gait speed and cognitive status in communitydwelling older people: A systematic review and meta-analysis. J. Gerontol. Ser. A 74, 943–948 (2019).
 - (p. 5) pace was associated with attention and executive function
-- (p. 5) executive function was estimated to correspond to 5- to 10-year  deterioration in gait35
-  - Note: Verlinden, V. J. A., van der Geest, J. N., Hofman, A. & Ikram, M. A. Cognition and gait show a distinct pattern of association in the general population. Alzheimer’s Dement. 10, 328–335 (2014).
-- (p. 5) interventions impacting pace could also, directly or indirectly, improve clinical outcomes such as fear of falling and executive function and attention.
 - (p. 6) pace and asymmetry were significantly different between MS fallers and non-fallers, and increased pace lowered the likelihood of being an MS-F.
 - (p. 6) pace domain was also associated with functional mobility and fear of falling
-- (p. 6) Future studies should expand analyses to represent a more heterogeneous sample across the MS severity spectrum, and track gait domains’ progression and their relation to falls longitudinally
 %% end key-insights %%
 
 ---

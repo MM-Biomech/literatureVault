@@ -69,12 +69,14 @@ _templates/         Templater/Nunjucks templates for each note type
 ```yaml
 type: paper
 citekey: authorYearKeyword
+title: "Full article title"
 year: 2024
 status: unread | reading | processed
 ```
-**Body sections (auto-filled from Zotero highlights by color):**
-- `## Study Context` — Population, Sample Size, Activity, Methods, Statistics (manual wikilinks) + Purpose/Hypothesis (Blue), Participant Demographics (Purple), Methods Details (Magenta) — all wrapped in `%% begin study-context %% / %% end study-context %%` persist blocks
-- `## Metrics Studied` — wikilinks to metric nodes (manual)
+**Body sections:**
+- `## Study Context` — all wrapped in `%% begin study-context %% / %% end study-context %%` persist block:
+  - *Manual fields (fill in this order):* Population, Sample Size, Activity, Protocol (task design — distance, trials, speed, environment), Devices (wikilinks to hardware/software ontology nodes), Statistics, Metrics Studied (wikilinks to metric nodes)
+  - *Auto-filled from highlights:* Purpose/Hypothesis (Blue), Participant Demographics (Purple), Methods Details (Magenta)
 - `## Results` — auto-filled from Red highlights
 - `## Key Insights Extracted` — sentence-form wikilinks to insight files (manual) + Yellow highlight excerpts (auto)
 - `## Reference Data Extracted` — links to reference data notes (manual)
@@ -97,6 +99,8 @@ property: Clinical Association       # Reliability | Validation | Clinical Assoc
 method: IMU                          # plain text (optional)
 citekey: authorYearKeyword           # plain text
 ```
+
+**`contested: true`** — optional field. Use when a claim is needed as a contrasting foil in manuscript writing but is contradicted by your own or others' evidence. Cross-link to a counter-insight in the note body. Omit entirely when not contested. Enables Dataview queries to separate settled claims from disputed ones.
 
 **Critical rule: all YAML values are plain text.** Wikilinks (`[[...]]`) in YAML fields break all Dataview queries — the Insight Explorer and Processing Queue will silently return no results for that note.
 **Body:** One sentence claim (manuscript-ready) + Evidence paragraph + optional Reference Data links
@@ -123,6 +127,8 @@ citekey: authorYearKeyword           # plain text
 **Naming:** `citekey — Description` (e.g. `kim2026InsoleDerivedPlantar — Smart Insole Validation`)  
 **Structure:** `Source: [[citekey]]`, `Citation: @citekey`, then a markdown table  
 **Always use wikilinks** in Metric and Population columns to enable backlink retrieval
+
+**One note per research question, not one note per paper.** A paper may generate multiple reference data notes if its data serves distinct retrieval purposes. Test: if the note requires "and" to describe its content, split it. A paper reporting both normative CoV values and minimum stride count thresholds warrants two notes — one per question.
 
 ---
 
@@ -186,7 +192,8 @@ citekey: authorYearKeyword           # plain text
 | Purple | Participant demographics | Participant Demographics |
 | Magenta | Methods, stats, equipment | Methods Details |
 | Red | Results | Results |
-| Yellow | Insightful claims, intro/discussion arguments | Key Insights Extracted |
+| Yellow | Citable findings from this paper that you believe | Key Insights Extracted |
+| Orange | Claims cited from other papers worth chasing — breadcrumbs to follow-up reading | Follow-up Citations |
 
 ---
 
