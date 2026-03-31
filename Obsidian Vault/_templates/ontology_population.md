@@ -14,6 +14,9 @@ Commonly studied activities:
 Relevant gait metrics:
 - [[]]
 
+Notes:
+
+
 ---
 
 ## Referenced In

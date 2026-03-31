@@ -1,18 +1,22 @@
-<%* await tp.file.move("03_Ontology/clinical_measure/" + tp.file.title) %>
-# <% tp.file.title %>
+
+# Unified Parkinson's Disease Rating Scale (UPDRS)
 
 Type: Clinical Measure
 
 Purpose:
+Considered the gold standard in rating the disease severity (signs and symptoms) and monitoring the response to medications in people with Parkinson's disease. The test comprises of six segments: 1) Mentation, Behavior, and Mood, 2) ADL, 3) Motor sections, 4)  Complications of Therapy (in the past week) 5) Modified [[HY]], and 6) Schwab and England ADL scale. The first four segments are made up of 42 items grouped into four subscales. The UPDRS was developed in 1987 as a gold standard by neurologists for monitoring the response to medications used to decrease the signs and symptoms of Parkinson's.
 
 Administration:
-<!-- clinician-administered / self-report / performance-based -->
+clinician-administered
 
 Score range:
+Parts 1 to 3 are scored on a 0-4 rating scale.
+Part 4 is scored with yes and no ratings.
+Then the administrator rates the patient on  the H and Y Scale and the Schwab and England Activities of Daily Living Scale.
 
 Interpretation:
-- Higher scores indicate:
-- Lower scores indicate:
+- Higher scores indicate: increase in disability
+- Lower scores indicate: decrease in disability
 
 Equation:
 <!-- Delete if not applicable -->
@@ -25,7 +29,7 @@ MCID:
 <!-- Delete fields above if not reported or not applicable -->
 
 Relevant populations:
-- [[]]
+- [[Parkinson's Disease]]
 
 ---
 

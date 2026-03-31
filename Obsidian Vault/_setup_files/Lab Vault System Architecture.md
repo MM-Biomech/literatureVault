@@ -183,6 +183,15 @@ On **re-import** (after adding new highlights in Zotero):
 - Once you have edited content inside a persist block, that content is permanently preserved by subsequent imports
 - If a persist block is messy, edit it directly in Obsidian — re-import will not fix it
 
+**Persist block integrity — common mistake:**
+Every `%% begin name %%` marker must have a matching `%% end name %%`. If the closing tag is missing, Zotero Integration cannot determine where the block ends. On re-import, it will treat everything from the opening tag to the *next* closing tag it finds — which may be from a completely different section — as a single protected block, silently swallowing content between them.
+
+Symptoms of an unclosed block:
+- A section that should be auto-filled from highlights stays empty after re-import
+- Content from two sections appears merged into one
+
+To verify: in Obsidian source mode, check that every `%% begin ... %%` is followed by a corresponding `%% end ... %%` before the next `## ` heading.
+
 ---
 
 # Top-Level Folder Structure

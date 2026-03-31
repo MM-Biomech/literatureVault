@@ -13,7 +13,7 @@ Common secondary tasks:
 
 Common populations studied:
 - [[Healthy Adults]]
-- [[Parkinsons Disease]]
+-[[Parkinson's Disease]]]
 - [[Multiple Sclerosis]]
 
 Common metrics:

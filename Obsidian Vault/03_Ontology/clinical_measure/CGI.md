@@ -1,31 +1,33 @@
-<%* await tp.file.move("03_Ontology/clinical_measure/" + tp.file.title) %>
-# <% tp.file.title %>
+
+# Clinical Global Impressions scale (CGI)
 
 Type: Clinical Measure
 
 Purpose:
+Measurement of clinical change used across many diseases. Assesses the patient's functioning prior to and after initiating medication in trials.
+Comes in different variants Severity of illness: (CGI-S); Global Improvement (CGI-I); Efficacy index (CGI-E).
 
 Administration:
-<!-- clinician-administered / self-report / performance-based -->
+clinician-administered
 
 Score range:
+"Considering your total clinical experience with this particular population, how ill is the patient at this time?" 
+1. Normal, not at all ill
+2. Borderline mentally ill
+3. Mildly ill
+4. Moderately ill
+5. Markedly ill
+6. Severely ill
+7. Among the most extremely ill patients
 
 Interpretation:
-- Higher scores indicate:
-- Lower scores indicate:
+- Higher scores indicate: More ill than typical
+- Lower scores indicate: Less ill than typical
 
-Equation:
-<!-- Delete if not applicable -->
-$$
-
-$$
-
-MDC:
-MCID:
-<!-- Delete fields above if not reported or not applicable -->
 
 Relevant populations:
-- [[]]
+- [[Parkinson's Disease]] used in TOH study
+- Not disease dependent
 
 ---
 

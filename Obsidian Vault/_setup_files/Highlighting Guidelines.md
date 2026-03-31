@@ -68,6 +68,42 @@ This keeps the context of *why* you want to read it attached to the breadcrumb. 
 
 ---
 
+## Follow-up Citations — What Belongs and What Does Not
+
+The Follow-up Citations section is for **papers you intend to find and read**. It is not a general notes field.
+
+### What belongs
+- A sentence citing a specific paper, where that paper contains a finding or method you want to understand in depth
+- Each entry should have a `Find:` comment identifying the paper and why it matters
+
+```
+- (p. 2) Gait variability increases with MS disease severity (Chee et al., 2021)
+  - Find: Chee 2021 — variability changes across disease course
+```
+
+### What does not belong
+
+**Background statements with no specific paper to chase:**
+> *"Walking is one of the most valued functions in people with MS (Heesen et al., 2008)"*
+
+If you do not intend to read Heesen 2008 specifically, do not put this here. Background context that informed your reading does not need to live anywhere in the vault.
+
+**Insight titles written as Note: comments:**
+> *"- (p. 5) PwMS walk slower than controls.*
+> *  - Note: [[People with MS have reduced walking speed compared to healthy adults]]*"
+
+This is a common mistake. If you have identified an insight worth extracting, write the wikilink at the **top of Key Insights**, not as a Note comment in Follow-up Citations or anywhere else in the highlight block.
+
+**General disease facts with no retrieval value:**
+> *"The majority of people with RRMS transition to SPMS (Koch et al., 2010)"*
+
+This is background you absorbed while reading. It does not need to be in the vault.
+
+### The test
+Before adding an entry to Follow-up Citations, ask: *"Do I intend to add this specific paper to Zotero and process it?"* If the answer is no, do not add it.
+
+---
+
 ## The Insight Note Title Test
 
 Before highlighting in Yellow, ask: **can I write a one-sentence declarative claim right now?**

@@ -1,4 +1,4 @@
-﻿# Vault Quickstart
+# Vault Quickstart
 
 Welcome. This guide gets you from zero to processing your first paper in one session.
 For full architectural detail, see `Lab Vault System Architecture.md`.
@@ -132,15 +132,33 @@ Change `status: unread` to `status: reading` in the YAML frontmatter at the top 
 
 ### Name your insights (while the paper is fresh)
 
-In the **Key Insights Extracted** section, write sentence-form wikilinks for claims worth keeping:
+In the **Key Insights Extracted** section, write sentence-form wikilinks **at the top of the section**, above the raw highlight text:
 
 ```
 - [[Stride velocity is reduced in early Parkinson's disease during straight-line walking]]
 - [[IMU-derived cadence shows high ICC in Parkinson's disease]]
-```
-> **Tip** When you highlight text in Zotero, use double square brackets around key words and insights to expedite the process [[]]
 
-Links are generated when words are within [[]]; however, the files do not exist yet. Obsidian tracks them as unresolved links — you create the actual files later. This is normal and expected.
+- (p. 4) raw highlight text from Zotero...
+- (p. 5) another raw highlight...
+```
+
+> **The wikilinks must end up at the top — not left as `Note:` comments inside the highlight block.** Writing `[[]]` links in your Zotero comment is encouraged (see tip below), but after import you must move those wikilinks up to the top of the section. A wikilink left inside a `  - Note: [[...]]` line under a raw highlight will not register in the Processing Queue as a named insight awaiting a file.
+
+The insight files do not exist yet — that is normal and expected. Obsidian tracks unresolved wikilinks automatically. You create the actual files later (see Creating an Insight Note below).
+
+> **Tip for Zotero comments on Yellow highlights:** Write `[[Insight title]]` directly in the Zotero comment field while reading — this is the most efficient moment to name the claim. After importing, those wikilinks will appear as `- Note: [[...]]` inside the raw highlight block. **Move them to the top of Key Insights** as a post-import step, then remove the redundant Note comment. Two quick moves per insight, and all the naming was done at read time.
+
+### Before closing the note — completion checklist
+
+Run through this before setting `status: reading`:
+
+- [ ] `status:` changed from `unread` to `reading` in YAML
+- [ ] All manual Study Context fields filled (Population, Sample Size, Activity, Protocol, Devices, Statistics, Metrics Studied)
+- [ ] `- [[]]` placeholder removed from Key Insights, Metrics Studied, and Reference Data Extracted
+- [ ] Insight wikilinks written at the **top** of Key Insights, above the raw highlights
+- [ ] Metrics Studied contains only **metric** wikilinks — not domain nodes (e.g. `[[Variability]]` is a domain; `[[Stride Time]]` is a metric)
+- [ ] Follow-up Citations contains only genuine paper-to-chase entries with a `Find:` comment — no background statements, no insight titles from other papers
+- [ ] Each persist block that was opened (`%% begin name %%`) has a matching close tag (`%% end name %%`)
 
 ### Create ontology nodes for new concepts
 

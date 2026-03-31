@@ -1,4 +1,4 @@
-﻿# Parkinson's Disease
+# Parkinson's Disease
 
 Type: Population
 
@@ -22,16 +22,20 @@ Relevant gait metrics:
 - [[Stride Length]]
 - [[Turn Duration]]
 
+Notes:
+
+
 ---
 
 ## Referenced In
 
 ```dataviewjs
 const path = dv.current().file.path;
+const currentTitle = dv.current().file.name;
+
 const papers = dv.pages('"01_Papers"')
     .where(p => p.file.outlinks.some(l => l.path === path))
     .sort(p => p.year, 'desc');
-const currentTitle = dv.current().file.name;
 const insights = dv.pages('"02_Insights"')
     .where(p =>
         p.file.outlinks.some(l => l.path === path) ||

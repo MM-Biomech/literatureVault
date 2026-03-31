@@ -47,7 +47,7 @@
       "template": "_templates/ontology_property.md"
     },
     {
-      "folder": "03_Ontology/Clinical Measure",
+      "folder": "03_Ontology/clinical_measure",
       "template": "_templates/ontology_clinical_measure.md"
     },
     {

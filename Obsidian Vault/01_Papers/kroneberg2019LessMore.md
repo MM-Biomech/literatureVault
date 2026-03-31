@@ -9,7 +9,7 @@ status: processed
 %% begin study-context %%
 Population:
 - [[Healthy Older Adults]]
-- [[Parkinsons Disease]]
+- [[Parkinson's Disease]]
 - [[Cerebellar Ataxia]]
 - [[Essential Tremor]]
 

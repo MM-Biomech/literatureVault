@@ -4,7 +4,7 @@ Citation: @kroneberg2019LessMore
 
 Population: 
 [[Healthy Older Adults]] (N= 172)
-[[Parkinsons Disease]] (N=12)
+[[Parkinson's Disease]] (N=12)
 [[Essential Tremor]] (N = 12)
 [[Cerebellar Ataxia]] (N = 7)
 Method: [[IMU]] 6 sensors

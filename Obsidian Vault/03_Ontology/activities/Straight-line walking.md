@@ -8,7 +8,7 @@ Walking in a straight path at a self-selected comfortable pace. The most common 
 Common populations studied:
 - [[Healthy Adults]]
 - [[Multiple Sclerosis]]
-- [[Parkinsons Disease]]
+-[[Parkinson's Disease]]]
 - [[CIDP]]
 
 Common metrics:

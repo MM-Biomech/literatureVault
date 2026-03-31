@@ -1,4 +1,4 @@
-﻿---
+---
 type: paper
 citekey: kim2026InsoleDerivedPlantar
 year: 2026
@@ -9,7 +9,7 @@ status: processed
 Population:
 - [[Healthy Adults]]
 - [[Healthy Older Adults]]
-- [[Parkinsons Disease]] - Early stage [[Hoehn and Yahr]] stage ≤ 2
+-[[Parkinson's Disease]]] - Early stage [[Hoehn and Yahr]] stage ≤ 2
 
 Sample Size:
  - 16 Healthy used for validation 7 men and 9 women, age: 31.13 ± 4.4 years, height: 167.75 ± 7.06 cm, weight: 63.06 ± 14.89 kg)

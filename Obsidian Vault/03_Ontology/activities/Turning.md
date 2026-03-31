@@ -8,7 +8,7 @@ A 180° change in walking direction. Turning is a high-demand motor task requiri
 Common populations studied:
 - [[Healthy Adults]]
 - [[Multiple Sclerosis]]
-- [[Parkinsons Disease]]
+-[[Parkinson's Disease]]]
 
 Common metrics:
 - [[Turn Duration]]

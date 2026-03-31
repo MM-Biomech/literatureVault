@@ -30,7 +30,7 @@ MDC:
 MCID:
 
 Relevant populations:
-- [[Parkinsons Disease]]
+-[[Parkinson's Disease]]]
 - [[Multiple Sclerosis]]
 - [[Healthy Adults]]
 
